@@ -6,203 +6,155 @@
 <title>CS Scripter</title>
 <style>
     body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: #0a0a0a;
+        background: #0f0f0f;
         color: white;
+        font-family: Arial, sans-serif;
+        margin: 0;
     }
-
-    /* Yükleme ekranı */
-    #loading {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        background: black;
+    .loader {
+        position: fixed;
+        top:0; left:0;
+        width:100%; height:100%;
+        background:#0f0f0f;
+        display:flex; justify-content:center; align-items:center;
+        flex-direction:column;
         font-size: 1.5rem;
     }
-    .spinner {
-        border: 5px solid rgba(255,255,255,0.1);
-        border-top: 5px solid #00ffcc;
+    .dot {
+        width: 10px; height: 10px;
+        background: #00ff88;
         border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        animation: spin 1s linear infinite;
-        margin-bottom: 15px;
+        margin: 5px;
+        animation: bounce 0.6s infinite alternate;
     }
-    @keyframes spin {
-        100% { transform: rotate(360deg); }
+    .dot:nth-child(2) { animation-delay: 0.2s; }
+    .dot:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes bounce {
+        to { transform: translateY(-10px); }
     }
-
-    /* Bot doğrulama */
-    #captcha {
-        display: none;
-        height: 100vh;
-        background: #111;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
+    .captcha {
+        display:none;
+        text-align:center;
+        padding:20px;
     }
-    .captcha-box {
-        background: #1a1a1a;
-        padding: 20px;
-        border-radius: 10px;
-        text-align: center;
-        box-shadow: 0 0 15px #00ffcc;
-    }
-    .captcha-code {
-        font-size: 2rem;
-        letter-spacing: 5px;
-        margin-bottom: 15px;
-        color: #00ffcc;
-    }
-    input {
-        padding: 8px;
-        border-radius: 5px;
-        border: none;
-        margin-bottom: 10px;
-        text-align: center;
-    }
-    .btn {
-        padding: 10px 20px;
-        background: #00ffcc;
-        border: none;
-        cursor: pointer;
-        border-radius: 5px;
-        color: black;
-        font-weight: bold;
-    }
-    .btn:hover {
-        background: #00ccaa;
-    }
-
-    /* Ana içerik */
-    #main {
-        display: none;
-        padding: 20px;
-    }
-    .search-box {
-        margin-bottom: 20px;
-    }
-    .search-box input {
-        width: 100%;
-        padding: 10px;
-        border-radius: 5px;
-        border: none;
+    .main {
+        display:none;
+        padding:20px;
     }
     .script-item {
         background: #1a1a1a;
         padding: 15px;
         border-radius: 10px;
         margin-bottom: 10px;
-        box-shadow: 0 0 10px #00ffcc;
     }
-    .script-item h3 {
-        margin: 0;
-        color: #00ffcc;
-    }
-    .script-item pre {
-        background: black;
-        padding: 10px;
+    input[type=text] {
+        padding: 8px;
         border-radius: 5px;
-        overflow-x: auto;
+        border: none;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    button {
+        padding: 10px;
+        background: #00ff88;
+        color: black;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background: #00cc66;
     }
 </style>
 </head>
 <body>
 
-<!-- Yükleme ekranı -->
-<div id="loading">
-    <div class="spinner"></div>
-    <div id="loadingText">Bağlantınız kontrol ediliyor...</div>
-</div>
-
-<!-- Bot doğrulama -->
-<div id="captcha">
-    <div class="captcha-box">
-        <div class="captcha-code" id="captchaCode"></div>
-        <input type="text" id="captchaInput" placeholder="Kodu buraya gir">
-        <br>
-        <button class="btn" onclick="checkCaptcha()">Doğrula</button>
+<div class="loader" id="loader">
+    <div style="display:flex;">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
     </div>
+    <p>Ping ölçülüyor...</p>
 </div>
 
-<!-- Ana içerik -->
-<div id="main">
+<div class="captcha" id="captcha">
+    <h2>Bot olmadığını kanıtla</h2>
+    <p id="captchaCode" style="font-size: 1.2rem; letter-spacing: 3px;"></p>
+    <input type="text" id="captchaInput" placeholder="Kodu buraya yaz">
+    <br>
+    <button onclick="checkCaptcha()">Doğrula</button>
+</div>
+
+<div class="main" id="main">
     <h1>CS Scripter</h1>
-    <div class="search-box">
-        <input type="text" id="search" placeholder="Script ara..." onkeyup="searchScripts()">
-    </div>
-    <div id="scriptList">Yükleniyor...</div>
+    <input type="text" id="search" placeholder="Script ara..." oninput="searchScripts()">
+    <div id="scriptList">Scriptler yükleniyor...</div>
 </div>
 
 <script>
-    // Ping ölçümü
-    let startPing = Date.now();
-    fetch(window.location.href).then(() => {
-        let ping = Date.now() - startPing;
-        document.getElementById("loadingText").innerText = `Ping: ${ping} ms`;
-        setTimeout(() => {
-            document.getElementById("loading").style.display = "none";
-            startCaptcha();
-        }, ping < 300 ? 1500 : 3000);
-    });
+let captchaText = "";
 
-    // Captcha başlat
-    function startCaptcha() {
-        document.getElementById("captcha").style.display = "flex";
-        let chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-        let code = "";
-        for (let i = 0; i < 6; i++) {
-            code += chars.charAt(Math.floor(Math.random() * chars.length));
-        }
-        document.getElementById("captchaCode").innerText = code;
-        window.generatedCode = code;
-    }
-
-    // Captcha kontrol
-    function checkCaptcha() {
-        let val = document.getElementById("captchaInput").value.toUpperCase();
-        if (val === window.generatedCode) {
-            document.getElementById("captcha").style.display = "none";
-            document.getElementById("main").style.display = "block";
-            loadScripts();
-        } else {
-            alert("Kod yanlış, tekrar deneyin.");
-        }
-    }
-
-    // ScriptBlox API'den veri çek (CORS Proxy ile)
-    function loadScripts() {
-        let url = "https://scriptblox.com/api/script/search?q=";
-        fetch("https://api.allorigins.win/raw?url=" + encodeURIComponent(url))
-            .then(res => res.json())
-            .then(data => {
-                let container = document.getElementById("scriptList");
-                container.innerHTML = "";
-                data.result.scripts.forEach(script => {
-                    let div = document.createElement("div");
-                    div.className = "script-item";
-                    div.innerHTML = `<h3>${script.title}</h3>
-                                     <p>${script.game ? script.game.name : ""}</p>
-                                     <pre>${script.script || "Kod bulunamadı"}</pre>`;
-                    container.appendChild(div);
-                });
-            })
-            .catch(err => {
-                document.getElementById("scriptList").innerText = "Scriptler yüklenemedi.";
-            });
-    }
-
-    // Arama filtresi
-    function searchScripts() {
-        let input = document.getElementById("search").value.toLowerCase();
-        let items = document.querySelectorAll(".script-item");
-        items.forEach(item => {
-            item.style.display = item.innerText.toLowerCase().includes(input) ? "block" : "none";
+function measurePing() {
+    let start = Date.now();
+    fetch("https://api.allorigins.win/raw?url=https%3A%2F%2Fscriptblox.com")
+        .then(() => {
+            let ping = Date.now() - start;
+            setTimeout(() => {
+                document.getElementById("loader").style.display = "none";
+                showCaptcha();
+            }, ping < 500 ? 1000 : 2000);
         });
+}
+
+function showCaptcha() {
+    captchaText = Math.random().toString(36).substring(2, 8).toUpperCase();
+    document.getElementById("captchaCode").innerText = captchaText;
+    document.getElementById("captcha").style.display = "block";
+}
+
+function checkCaptcha() {
+    let input = document.getElementById("captchaInput").value.toUpperCase();
+    if (input === captchaText) {
+        document.getElementById("captcha").style.display = "none";
+        document.getElementById("main").style.display = "block";
+        loadScripts();
+    } else {
+        alert("Kod yanlış, tekrar dene.");
     }
+}
+
+function loadScripts(query = "roblox") {
+    let url = "https://scriptblox.com/api/script/search?q=" + encodeURIComponent(query);
+    fetch("https://api.allorigins.win/raw?url=" + encodeURIComponent(url))
+        .then(res => res.json())
+        .then(data => {
+            let container = document.getElementById("scriptList");
+            container.innerHTML = "";
+            if (!data.result || !data.result.scripts || data.result.scripts.length === 0) {
+                container.innerHTML = "Script bulunamadı.";
+                return;
+            }
+            data.result.scripts.forEach(script => {
+                let div = document.createElement("div");
+                div.className = "script-item";
+                div.innerHTML = `<h3>${script.title}</h3>
+                                 <p>${script.game ? script.game.name : ""}</p>
+                                 <pre>${script.script || "Kod bulunamadı"}</pre>`;
+                container.appendChild(div);
+            });
+        })
+        .catch(err => {
+            document.getElementById("scriptList").innerText = "Scriptler yüklenemedi.";
+        });
+}
+
+function searchScripts() {
+    let input = document.getElementById("search").value;
+    loadScripts(input);
+}
+
+measurePing();
 </script>
 
 </body>
