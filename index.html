@@ -1,273 +1,101 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CS Scripter</title>
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0f0f0f;
-  color: #fff;
-  overflow-x: hidden;
-}
-#loadingScreen {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: #000;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-#loadingText { font-size: 24px; margin-bottom: 10px; }
-#ping { font-size: 18px; color: #0f0; }
-#menuBtn {
-  position: fixed;
-  top: 10px; left: 10px;
-  font-size: 28px;
-  cursor: pointer;
-  z-index: 1001;
-}
-#sideMenu {
-  position: fixed;
-  top: 0; left: -250px;
-  width: 250px; height: 100%;
-  background: #111;
-  transition: 0.3s;
-  padding-top: 60px;
-  z-index: 1000;
-}
-#sideMenu a {
-  display: block;
-  padding: 12px 20px;
-  color: #fff;
-  text-decoration: none;
-  border-bottom: 1px solid #222;
-}
-#sideMenu a:hover { background: #222; }
-section { padding: 20px; }
-#searchContainer { text-align: center; }
-#search {
-  padding: 10px;
-  width: 80%;
-  max-width: 400px;
-  border-radius: 5px;
-  border: none;
-}
-button {
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  background: #0f0;
-  color: #000;
-  font-weight: bold;
-}
-button:hover { background: #0c0; }
-#scriptList {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-  padding: 10px;
-}
-.script-item {
-  background: #1a1a1a;
-  padding: 15px;
-  border-radius: 8px;
-  width: 300px;
-  box-shadow: 0 0 10px #0f0;
-}
-.script-item h3 { margin-top: 0; }
-#captchaContainer { margin: 20px; text-align: center; }
-#captchaCode {
-  font-size: 20px;
-  letter-spacing: 3px;
-  background: #333;
-  padding: 5px 10px;
-  display: inline-block;
-  margin-bottom: 5px;
-}
-footer {
-  text-align: center;
-  padding: 15px;
-  background: #111;
-  margin-top: 20px;
-  font-size: 14px;
-}
-#loginSection, #registerSection { max-width: 400px; margin: 50px auto; background: #1a1a1a; padding: 20px; border-radius: 10px; }
-#loginSection input, #registerSection input { width: 100%; padding: 10px; margin: 5px 0; border: none; border-radius: 5px; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CS Scripter - Ana Sayfa</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(6px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: #00ffff;
+    }
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    .hero h1 {
+      font-size: 3em;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff;
+    }
+    .hero p {
+      font-size: 1.2em;
+      max-width: 700px;
+      margin: auto;
+      opacity: 0.85;
+    }
+    .discord-btn {
+      display: inline-block;
+      margin-top: 20px;
+      background: #5865F2;
+      padding: 12px 25px;
+      border-radius: 8px;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .discord-btn:hover {
+      background: #4752c4;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0,0,0,0.5);
+      margin-top: 40px;
+      font-size: 0.9em;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <div class="logo"><strong>CS Scripter</strong></div>
+    <nav>
+      <a href="index.html">Ana Sayfa</a>
+      <a href="biz-kimiz.html">Biz Kimiz</a>
+      <a href="neden-kurulduk.html">Neden Kurulduk</a>
+      <a href="lisanslar.html">Lisanslarımız</a>
+      <a href="add-script.html">Script Ekle</a>
+    </nav>
+  </header>
 
-<div id="loadingScreen">
-  <div id="loadingText">Yükleniyor...</div>
-  <div id="ping">Ping: Hesaplanıyor...</div>
-</div>
+  <section class="hero">
+    <h1>CS Scripter'e Hoşgeldiniz</h1>
+    <p>En güncel ve güvenilir Roblox scriptlerini sizler için sunuyoruz. Hızlı, güvenilir ve kolay kullanım.</p>
+    <a class="discord-btn" href="/api/auth">Discord ile Giriş Yap</a>
+  </section>
 
-<div id="menuBtn">&#9776;</div>
-<div id="sideMenu">
-  <a href="#about">Biz Kimiz</a>
-  <a href="#searchContainer">Scriptler</a>
-  <a href="#" onclick="logout()">Çıkış Yap</a>
-</div>
-
-<!-- Kayıt -->
-<div id="registerSection" style="display:none;">
-  <h2>Kayıt Ol</h2>
-  <input type="text" id="regUser" placeholder="Kullanıcı Adı">
-  <input type="password" id="regPass" placeholder="Şifre">
-  <button onclick="register()">Kayıt Ol</button>
-</div>
-
-<!-- Giriş -->
-<div id="loginSection" style="display:none;">
-  <h2>Giriş Yap</h2>
-  <input type="text" id="logUser" placeholder="Kullanıcı Adı">
-  <input type="password" id="logPass" placeholder="Şifre">
-  <button onclick="login()">Giriş Yap</button>
-</div>
-
-<!-- Biz Kimiz -->
-<section id="about" style="display:none;">
-  <h2>Biz Kimiz?</h2>
-  <p>CS Scripter, Roblox ve diğer platformlar için script paylaşan güvenilir bir topluluktur. Amacımız, oyunculara en iyi ve güvenli scriptleri sunmaktır.</p>
-</section>
-
-<!-- Script Arama -->
-<section id="searchContainer" style="display:none;">
-  <input type="text" id="search" placeholder="Script ara..." onkeyup="searchScripts()">
-  <button onclick="searchScripts()">Ara</button>
-</section>
-
-<!-- Captcha -->
-<div id="captchaContainer" style="display:none;">
-  <div id="captchaCode"></div>
-  <input type="text" id="captchaInput" placeholder="Kodu girin">
-  <button onclick="checkCaptcha()">Doğrula</button>
-  <div id="captchaStatus"></div>
-</div>
-
-<!-- Script Listesi -->
-<div id="scriptList" style="display:none;">Scriptler yükleniyor...</div>
-
-<footer>
-  CS-Scripter resmi sitesidir, diğerleri ile itibar etmeyin.
-</footer>
-
-<script>
-let menuOpen = false;
-document.getElementById("menuBtn").onclick = function() {
-  document.getElementById("sideMenu").style.left = menuOpen ? "-250px" : "0";
-  menuOpen = !menuOpen;
-};
-
-window.onload = function() {
-  let start = Date.now();
-  fetch(window.location.href).then(() => {
-    let ping = Date.now() - start;
-    document.getElementById("ping").innerText = "Ping: " + ping + " ms";
-    setTimeout(() => {
-      document.getElementById("loadingScreen").style.display = "none";
-      checkAuth();
-    }, 1000);
-  });
-};
-
-function checkAuth() {
-  let user = localStorage.getItem("username");
-  if (user) {
-    showMain();
-  } else {
-    document.getElementById("registerSection").style.display = "block";
-  }
-}
-
-function register() {
-  let u = document.getElementById("regUser").value;
-  let p = document.getElementById("regPass").value;
-  if (!u || !p) return alert("Lütfen tüm alanları doldurun.");
-  localStorage.setItem("username", u);
-  localStorage.setItem("password", p);
-  alert("Kayıt başarılı! Şimdi giriş yapın.");
-  document.getElementById("registerSection").style.display = "none";
-  document.getElementById("loginSection").style.display = "block";
-}
-
-function login() {
-  let u = document.getElementById("logUser").value;
-  let p = document.getElementById("logPass").value;
-  if (u === localStorage.getItem("username") && p === localStorage.getItem("password")) {
-    alert("Giriş başarılı!");
-    showMain();
-  } else {
-    alert("Kullanıcı adı veya şifre hatalı!");
-  }
-}
-
-function logout() {
-  localStorage.removeItem("username");
-  localStorage.removeItem("password");
-  location.reload();
-}
-
-function showMain() {
-  document.getElementById("loginSection").style.display = "none";
-  document.getElementById("registerSection").style.display = "none";
-  document.getElementById("about").style.display = "block";
-  document.getElementById("searchContainer").style.display = "block";
-  document.getElementById("captchaContainer").style.display = "block";
-  document.getElementById("scriptList").style.display = "flex";
-  generateCaptcha();
-  loadScripts();
-}
-
-function generateCaptcha() {
-  let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-  let code = "";
-  for (let i = 0; i < 6; i++) code += chars.charAt(Math.floor(Math.random() * chars.length));
-  document.getElementById("captchaCode").innerText = code;
-}
-function checkCaptcha() {
-  let code = document.getElementById("captchaCode").innerText;
-  let input = document.getElementById("captchaInput").value;
-  document.getElementById("captchaStatus").innerText =
-    code === input ? "Doğrulandı!" : "Hatalı kod!";
-}
-function loadScripts(query = "roblox") {
-  let url = "https://scriptblox.com/api/script/search?q=" + encodeURIComponent(query);
-  fetch("https://api.allorigins.win/raw?url=" + encodeURIComponent(url))
-    .then(res => res.json())
-    .then(data => {
-      let container = document.getElementById("scriptList");
-      container.innerHTML = "";
-      if (!data.result || !data.result.scripts) {
-        container.innerText = "Script bulunamadı.";
-        return;
-      }
-      data.result.scripts.forEach(script => {
-        let div = document.createElement("div");
-        div.className = "script-item";
-        div.innerHTML = `<h3>${script.title}</h3>
-                         <p>${script.game ? script.game.name : ""}</p>
-                         <pre>${script.script || "Kod bulunamadı"}</pre>`;
-        container.appendChild(div);
-      });
-    })
-    .catch(() => {
-      document.getElementById("scriptList").innerText = "Scriptler yüklenemedi.";
-    });
-}
-function searchScripts() {
-  let input = document.getElementById("search").value;
-  loadScripts(input || "roblox");
-}
-</script>
-
+  <footer>
+    CS-Scripter Resmi Sitesidir. Diğerleri ile itibar etmeyin.
+  </footer>
 </body>
 </html>
