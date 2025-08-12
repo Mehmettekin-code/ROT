@@ -12,8 +12,6 @@ body {
   color: #fff;
   overflow-x: hidden;
 }
-
-/* Yükleme ekranı */
 #loadingScreen {
   position: fixed;
   top: 0; left: 0;
@@ -25,16 +23,8 @@ body {
   align-items: center;
   z-index: 9999;
 }
-#loadingText {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-#ping {
-  font-size: 18px;
-  color: #0f0;
-}
-
-/* Menü */
+#loadingText { font-size: 24px; margin-bottom: 10px; }
+#ping { font-size: 18px; color: #0f0; }
 #menuBtn {
   position: fixed;
   top: 10px; left: 10px;
@@ -58,15 +48,9 @@ body {
   text-decoration: none;
   border-bottom: 1px solid #222;
 }
-#sideMenu a:hover {
-  background: #222;
-}
-
-/* Script arama */
-#searchContainer {
-  margin: 80px auto 20px;
-  text-align: center;
-}
+#sideMenu a:hover { background: #222; }
+section { padding: 20px; }
+#searchContainer { text-align: center; }
 #search {
   padding: 10px;
   width: 80%;
@@ -83,11 +67,7 @@ button {
   color: #000;
   font-weight: bold;
 }
-button:hover {
-  background: #0c0;
-}
-
-/* Script listesi */
+button:hover { background: #0c0; }
 #scriptList {
   display: flex;
   flex-wrap: wrap;
@@ -102,15 +82,8 @@ button:hover {
   width: 300px;
   box-shadow: 0 0 10px #0f0;
 }
-.script-item h3 {
-  margin-top: 0;
-}
-
-/* Captcha */
-#captchaContainer {
-  margin: 20px;
-  text-align: center;
-}
+.script-item h3 { margin-top: 0; }
+#captchaContainer { margin: 20px; text-align: center; }
 #captchaCode {
   font-size: 20px;
   letter-spacing: 3px;
@@ -119,8 +92,6 @@ button:hover {
   display: inline-block;
   margin-bottom: 5px;
 }
-
-/* Footer */
 footer {
   text-align: center;
   padding: 15px;
@@ -128,36 +99,54 @@ footer {
   margin-top: 20px;
   font-size: 14px;
 }
+#loginSection, #registerSection { max-width: 400px; margin: 50px auto; background: #1a1a1a; padding: 20px; border-radius: 10px; }
+#loginSection input, #registerSection input { width: 100%; padding: 10px; margin: 5px 0; border: none; border-radius: 5px; }
 </style>
 </head>
 <body>
 
-<!-- Yükleme Ekranı -->
 <div id="loadingScreen">
   <div id="loadingText">Yükleniyor...</div>
   <div id="ping">Ping: Hesaplanıyor...</div>
 </div>
 
-<!-- Menü -->
 <div id="menuBtn">&#9776;</div>
 <div id="sideMenu">
-  <a href="#">Biz Kimiz</a>
-  <a href="#">Hilemiz (Yakında)</a>
+  <a href="#about">Biz Kimiz</a>
   <a href="#searchContainer">Scriptler</a>
-  <a href="#">Hesabına Giriş Yap</a>
-  <a href="#">Kayıt Ol</a>
-  <a href="#">Discord ile Giriş</a>
-  <a href="#">Google ile Giriş</a>
+  <a href="#" onclick="logout()">Çıkış Yap</a>
 </div>
+
+<!-- Kayıt -->
+<div id="registerSection" style="display:none;">
+  <h2>Kayıt Ol</h2>
+  <input type="text" id="regUser" placeholder="Kullanıcı Adı">
+  <input type="password" id="regPass" placeholder="Şifre">
+  <button onclick="register()">Kayıt Ol</button>
+</div>
+
+<!-- Giriş -->
+<div id="loginSection" style="display:none;">
+  <h2>Giriş Yap</h2>
+  <input type="text" id="logUser" placeholder="Kullanıcı Adı">
+  <input type="password" id="logPass" placeholder="Şifre">
+  <button onclick="login()">Giriş Yap</button>
+</div>
+
+<!-- Biz Kimiz -->
+<section id="about" style="display:none;">
+  <h2>Biz Kimiz?</h2>
+  <p>CS Scripter, Roblox ve diğer platformlar için script paylaşan güvenilir bir topluluktur. Amacımız, oyunculara en iyi ve güvenli scriptleri sunmaktır.</p>
+</section>
 
 <!-- Script Arama -->
-<div id="searchContainer">
+<section id="searchContainer" style="display:none;">
   <input type="text" id="search" placeholder="Script ara..." onkeyup="searchScripts()">
   <button onclick="searchScripts()">Ara</button>
-</div>
+</section>
 
 <!-- Captcha -->
-<div id="captchaContainer">
+<div id="captchaContainer" style="display:none;">
   <div id="captchaCode"></div>
   <input type="text" id="captchaInput" placeholder="Kodu girin">
   <button onclick="checkCaptcha()">Doğrula</button>
@@ -165,22 +154,19 @@ footer {
 </div>
 
 <!-- Script Listesi -->
-<div id="scriptList">Scriptler yükleniyor...</div>
+<div id="scriptList" style="display:none;">Scriptler yükleniyor...</div>
 
-<!-- Footer -->
 <footer>
   CS-Scripter resmi sitesidir, diğerleri ile itibar etmeyin.
 </footer>
 
 <script>
-/* Menü Aç-Kapa */
 let menuOpen = false;
 document.getElementById("menuBtn").onclick = function() {
   document.getElementById("sideMenu").style.left = menuOpen ? "-250px" : "0";
   menuOpen = !menuOpen;
 };
 
-/* Yükleme Ekranı ve Ping */
 window.onload = function() {
   let start = Date.now();
   fetch(window.location.href).then(() => {
@@ -188,13 +174,59 @@ window.onload = function() {
     document.getElementById("ping").innerText = "Ping: " + ping + " ms";
     setTimeout(() => {
       document.getElementById("loadingScreen").style.display = "none";
+      checkAuth();
     }, 1000);
   });
-  generateCaptcha();
-  loadScripts();
 };
 
-/* Captcha */
+function checkAuth() {
+  let user = localStorage.getItem("username");
+  if (user) {
+    showMain();
+  } else {
+    document.getElementById("registerSection").style.display = "block";
+  }
+}
+
+function register() {
+  let u = document.getElementById("regUser").value;
+  let p = document.getElementById("regPass").value;
+  if (!u || !p) return alert("Lütfen tüm alanları doldurun.");
+  localStorage.setItem("username", u);
+  localStorage.setItem("password", p);
+  alert("Kayıt başarılı! Şimdi giriş yapın.");
+  document.getElementById("registerSection").style.display = "none";
+  document.getElementById("loginSection").style.display = "block";
+}
+
+function login() {
+  let u = document.getElementById("logUser").value;
+  let p = document.getElementById("logPass").value;
+  if (u === localStorage.getItem("username") && p === localStorage.getItem("password")) {
+    alert("Giriş başarılı!");
+    showMain();
+  } else {
+    alert("Kullanıcı adı veya şifre hatalı!");
+  }
+}
+
+function logout() {
+  localStorage.removeItem("username");
+  localStorage.removeItem("password");
+  location.reload();
+}
+
+function showMain() {
+  document.getElementById("loginSection").style.display = "none";
+  document.getElementById("registerSection").style.display = "none";
+  document.getElementById("about").style.display = "block";
+  document.getElementById("searchContainer").style.display = "block";
+  document.getElementById("captchaContainer").style.display = "block";
+  document.getElementById("scriptList").style.display = "flex";
+  generateCaptcha();
+  loadScripts();
+}
+
 function generateCaptcha() {
   let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
   let code = "";
@@ -207,8 +239,6 @@ function checkCaptcha() {
   document.getElementById("captchaStatus").innerText =
     code === input ? "Doğrulandı!" : "Hatalı kod!";
 }
-
-/* ScriptBlox API */
 function loadScripts(query = "roblox") {
   let url = "https://scriptblox.com/api/script/search?q=" + encodeURIComponent(query);
   fetch("https://api.allorigins.win/raw?url=" + encodeURIComponent(url))
