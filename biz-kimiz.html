@@ -1,53 +1,89 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biz Kimiz - CS Scripter</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
-            color: white;
-            text-align: center;
-            padding: 50px;
-        }
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: #00ffcc;
-        }
-        p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: auto;
-            line-height: 1.6;
-        }
-        footer {
-            margin-top: 40px;
-            padding: 10px;
-            font-size: 0.9rem;
-            color: #ccc;
-            border-top: 1px solid #444;
-        }
-        a {
-            color: #00ffcc;
-            text-decoration: none;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Biz Kimiz - CS Scripter</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(6px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: #00ffff;
+    }
+    .content {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 20px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      backdrop-filter: blur(4px);
+      animation: fadeIn 1s ease-in-out;
+    }
+    h1 {
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0,0,0,0.5);
+      margin-top: 40px;
+      font-size: 0.9em;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <div class="logo"><strong>CS Scripter</strong></div>
+    <nav>
+      <a href="index.html">Ana Sayfa</a>
+      <a href="biz-kimiz.html">Biz Kimiz</a>
+      <a href="neden-kurulduk.html">Neden Kurulduk</a>
+      <a href="lisanslar.html">Lisanslarımız</a>
+      <a href="add-script.html">Script Ekle</a>
+    </nav>
+  </header>
+
+  <section class="content">
     <h1>Biz Kimiz?</h1>
     <p>
-        CS Scripter, Roblox kullanıcılarına özel script paylaşım platformudur. 
-        Amacımız, topluluğa güvenli ve kaliteli scriptler sunmak, en güncel içerikleri kolayca bulmanızı sağlamaktır.
-        <br><br>
-        Ekibimiz deneyimli geliştiricilerden oluşur ve sizin için her zaman en iyisini hedefler.
+      CS Scripter ekibi olarak, Roblox platformunda güvenilir ve çalışır scriptleri toplamak, test etmek ve topluluk ile paylaşmak amacıyla yola çıktık.
+      Amacımız kullanıcıların zamanını boşa harcamadan, virüs veya zararlı kod içermeyen scriptlere kolayca ulaşabilmesini sağlamak.
     </p>
-    
-    <footer>
-        © 2025 CS Scripter - Resmi Sitesidir. Diğerleri ile itibar etmeyin.
-    </footer>
+    <p>
+      Ekibimiz, oyun deneyimini iyileştirmeye ve güvenli içerikler sunmaya odaklanan deneyimli geliştiricilerden oluşmaktadır.
+      Topluluğumuz, sürekli büyüyen ve yenilikçi fikirlerle gelişen bir ortamdır.
+    </p>
+  </section>
+
+  <footer>
+    CS-Scripter Resmi Sitesidir. Diğerleri ile itibar etmeyin.
+  </footer>
 </body>
 </html>
