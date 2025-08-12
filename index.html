@@ -21,7 +21,6 @@
         height: 100vh;
         background: black;
         font-size: 1.5rem;
-        animation: fadeIn 1s ease;
     }
     .spinner {
         border: 5px solid rgba(255,255,255,0.1);
@@ -34,10 +33,6 @@
     }
     @keyframes spin {
         100% { transform: rotate(360deg); }
-    }
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
     }
 
     /* Bot doğrulama */
@@ -178,9 +173,10 @@
         }
     }
 
-    // ScriptBlox API'den veri çek
+    // ScriptBlox API'den veri çek (CORS Proxy ile)
     function loadScripts() {
-        fetch("https://scriptblox.com/api/script/search?q=")
+        let url = "https://scriptblox.com/api/script/search?q=";
+        fetch("https://api.allorigins.win/raw?url=" + encodeURIComponent(url))
             .then(res => res.json())
             .then(data => {
                 let container = document.getElementById("scriptList");
@@ -190,7 +186,7 @@
                     div.className = "script-item";
                     div.innerHTML = `<h3>${script.title}</h3>
                                      <p>${script.game ? script.game.name : ""}</p>
-                                     <pre>${script.script}</pre>`;
+                                     <pre>${script.script || "Kod bulunamadı"}</pre>`;
                     container.appendChild(div);
                 });
             })
