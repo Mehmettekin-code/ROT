@@ -8,168 +8,203 @@
     body {
         margin: 0;
         font-family: Arial, sans-serif;
-        background: linear-gradient(-45deg, #0d0d0d, #1a1a1a, #0a0a0a, #111111);
-        background-size: 400% 400%;
-        animation: bgMove 15s ease infinite;
+        background: #0a0a0a;
         color: white;
     }
-    @keyframes bgMove {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-    }
 
-    /* Üst menü */
-    .navbar {
+    /* Yükleme ekranı */
+    #loading {
         display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: space-between;
-        padding: 15px 20px;
-        background: rgba(0, 0, 0, 0.8);
-        box-shadow: 0 0 10px #00ffcc;
-    }
-    .logo {
+        justify-content: center;
+        height: 100vh;
+        background: black;
         font-size: 1.5rem;
-        font-weight: bold;
-        color: #00ffcc;
+        animation: fadeIn 1s ease;
     }
-    .menu-icon {
-        font-size: 1.8rem;
-        cursor: pointer;
+    .spinner {
+        border: 5px solid rgba(255,255,255,0.1);
+        border-top: 5px solid #00ffcc;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        animation: spin 1s linear infinite;
+        margin-bottom: 15px;
+    }
+    @keyframes spin {
+        100% { transform: rotate(360deg); }
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
     }
 
-    /* Yan menü */
-    .side-menu {
-        height: 100%;
-        width: 0;
-        position: fixed;
-        top: 0;
-        left: 0;
-        background-color: rgba(0, 0, 0, 0.95);
-        overflow-x: hidden;
-        transition: 0.5s;
-        padding-top: 60px;
+    /* Bot doğrulama */
+    #captcha {
+        display: none;
+        height: 100vh;
+        background: #111;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .captcha-box {
+        background: #1a1a1a;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
         box-shadow: 0 0 15px #00ffcc;
     }
-    .side-menu a {
-        padding: 10px 30px;
-        text-decoration: none;
-        font-size: 1.2rem;
-        color: #00ffcc;
-        display: block;
-        transition: 0.3s;
-    }
-    .side-menu a:hover {
-        background: #00ffcc;
-        color: black;
-    }
-    .close-btn {
-        position: absolute;
-        top: 20px;
-        right: 25px;
+    .captcha-code {
         font-size: 2rem;
+        letter-spacing: 5px;
+        margin-bottom: 15px;
+        color: #00ffcc;
+    }
+    input {
+        padding: 8px;
+        border-radius: 5px;
+        border: none;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .btn {
+        padding: 10px 20px;
+        background: #00ffcc;
+        border: none;
         cursor: pointer;
+        border-radius: 5px;
+        color: black;
+        font-weight: bold;
+    }
+    .btn:hover {
+        background: #00ccaa;
     }
 
-    /* İçerik */
-    .container {
+    /* Ana içerik */
+    #main {
+        display: none;
         padding: 20px;
     }
-
-    /* Script arama */
     .search-box {
         margin-bottom: 20px;
     }
     .search-box input {
         width: 100%;
         padding: 10px;
-        border-radius: 8px;
+        border-radius: 5px;
         border: none;
-        font-size: 1rem;
     }
-
-    /* Script listesi */
     .script-item {
-        padding: 10px;
+        background: #1a1a1a;
+        padding: 15px;
+        border-radius: 10px;
         margin-bottom: 10px;
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 8px;
         box-shadow: 0 0 10px #00ffcc;
-        transition: 0.3s;
     }
-    .script-item:hover {
-        background: rgba(0, 255, 204, 0.2);
-    }
-
-    /* Buton */
-    .download-btn {
-        background: transparent;
+    .script-item h3 {
+        margin: 0;
         color: #00ffcc;
-        padding: 12px 25px;
-        border: 2px solid #00ffcc;
-        font-size: 1rem;
-        cursor: pointer;
-        border-radius: 8px;
-        transition: 0.3s;
     }
-    .download-btn:hover {
-        background: #00ffcc;
-        color: black;
-        box-shadow: 0 0 20px #00ffcc;
+    .script-item pre {
+        background: black;
+        padding: 10px;
+        border-radius: 5px;
+        overflow-x: auto;
     }
 </style>
 </head>
 <body>
 
-<!-- Üst Menü -->
-<div class="navbar">
-    <div class="logo">CS Scripter</div>
-    <div class="menu-icon" onclick="openMenu()">&#9776;</div>
+<!-- Yükleme ekranı -->
+<div id="loading">
+    <div class="spinner"></div>
+    <div id="loadingText">Bağlantınız kontrol ediliyor...</div>
 </div>
 
-<!-- Yan Menü -->
-<div id="sideMenu" class="side-menu">
-    <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">&times;</a>
-    <a href="#">Uygulamamızı İndir</a>
-    <a href="#scripts">Scriptler</a>
-    <a href="#about">Biz Kimiz</a>
-    <a href="#license">Lisanslarımız</a>
-    <a href="#">Resmi Sunucumuz</a>
+<!-- Bot doğrulama -->
+<div id="captcha">
+    <div class="captcha-box">
+        <div class="captcha-code" id="captchaCode"></div>
+        <input type="text" id="captchaInput" placeholder="Kodu buraya gir">
+        <br>
+        <button class="btn" onclick="checkCaptcha()">Doğrula</button>
+    </div>
 </div>
 
-<!-- İçerik -->
-<div class="container">
-    <h2 id="scripts">Scriptler</h2>
+<!-- Ana içerik -->
+<div id="main">
+    <h1>CS Scripter</h1>
     <div class="search-box">
         <input type="text" id="search" placeholder="Script ara..." onkeyup="searchScripts()">
     </div>
-    <div id="scriptList">
-        <div class="script-item">Speed Hack Script <button class="download-btn">İndir</button></div>
-        <div class="script-item">Fly Mode Script <button class="download-btn">İndir</button></div>
-        <div class="script-item">Auto Farm Script <button class="download-btn">İndir</button></div>
-        <div class="script-item">Teleport Script <button class="download-btn">İndir</button></div>
-    </div>
-
-    <h2 id="about">Biz Kimiz</h2>
-    <p>CS Scripter, oyunculara yaratıcı ve güçlü script çözümleri sunar. Hız, güvenlik ve performans önceliğimizdir.</p>
-
-    <h2 id="license">Lisanslarımız</h2>
-    <p>Tüm içeriklerimiz ilgili lisanslar altında korunmaktadır.</p>
+    <div id="scriptList">Yükleniyor...</div>
 </div>
 
 <script>
-    function openMenu() {
-        document.getElementById("sideMenu").style.width = "250px";
+    // Ping ölçümü
+    let startPing = Date.now();
+    fetch(window.location.href).then(() => {
+        let ping = Date.now() - startPing;
+        document.getElementById("loadingText").innerText = `Ping: ${ping} ms`;
+        setTimeout(() => {
+            document.getElementById("loading").style.display = "none";
+            startCaptcha();
+        }, ping < 300 ? 1500 : 3000);
+    });
+
+    // Captcha başlat
+    function startCaptcha() {
+        document.getElementById("captcha").style.display = "flex";
+        let chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+        let code = "";
+        for (let i = 0; i < 6; i++) {
+            code += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        document.getElementById("captchaCode").innerText = code;
+        window.generatedCode = code;
     }
-    function closeMenu() {
-        document.getElementById("sideMenu").style.width = "0";
+
+    // Captcha kontrol
+    function checkCaptcha() {
+        let val = document.getElementById("captchaInput").value.toUpperCase();
+        if (val === window.generatedCode) {
+            document.getElementById("captcha").style.display = "none";
+            document.getElementById("main").style.display = "block";
+            loadScripts();
+        } else {
+            alert("Kod yanlış, tekrar deneyin.");
+        }
     }
+
+    // ScriptBlox API'den veri çek
+    function loadScripts() {
+        fetch("https://scriptblox.com/api/script/search?q=")
+            .then(res => res.json())
+            .then(data => {
+                let container = document.getElementById("scriptList");
+                container.innerHTML = "";
+                data.result.scripts.forEach(script => {
+                    let div = document.createElement("div");
+                    div.className = "script-item";
+                    div.innerHTML = `<h3>${script.title}</h3>
+                                     <p>${script.game ? script.game.name : ""}</p>
+                                     <pre>${script.script}</pre>`;
+                    container.appendChild(div);
+                });
+            })
+            .catch(err => {
+                document.getElementById("scriptList").innerText = "Scriptler yüklenemedi.";
+            });
+    }
+
+    // Arama filtresi
     function searchScripts() {
         let input = document.getElementById("search").value.toLowerCase();
-        let scripts = document.querySelectorAll(".script-item");
-        scripts.forEach(script => {
-            let text = script.textContent.toLowerCase();
-            script.style.display = text.includes(input) ? "block" : "none";
+        let items = document.querySelectorAll(".script-item");
+        items.forEach(item => {
+            item.style.display = item.innerText.toLowerCase().includes(input) ? "block" : "none";
         });
     }
 </script>
