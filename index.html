@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS Scripter</title>
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+        background: black;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Giriş ekranı */
+    #intro {
+        text-align: center;
+        color: white;
+        animation: fadeIn 2s ease forwards;
+    }
+    @keyframes fadeIn {
+        0% { opacity: 0; transform: scale(0.9); }
+        100% { opacity: 1; transform: scale(1); }
+    }
+
+    .title {
+        font-size: 3rem;
+        font-weight: bold;
+        background: linear-gradient(90deg, #ff0000, #00ff00, #0000ff, #ff00ff);
+        background-size: 300% 300%;
+        -webkit-background-clip: text;
+        color: transparent;
+        animation: gradientMove 4s ease infinite;
+    }
+    @keyframes gradientMove {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    .subtitle {
+        font-size: 1.5rem;
+        margin-top: 10px;
+        color: #cccccc;
+        animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+        0% { opacity: 0.5; }
+        50% { opacity: 1; }
+        100% { opacity: 0.5; }
+    }
+
+    /* Ana sayfa */
+    #main {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        color: white;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        animation: fadeInMain 1s ease forwards;
+    }
+    @keyframes fadeInMain {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    /* Arka plan animasyonu */
+    body.main-bg {
+        background: linear-gradient(-45deg, #000000, #111111, #0a0a0a, #1a1a1a);
+        background-size: 400% 400%;
+        animation: gradientBG 10s ease infinite;
+    }
+    @keyframes gradientBG {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    /* Buton stili */
+    .download-btn {
+        position: relative;
+        background: transparent;
+        color: #00ffcc;
+        padding: 20px 60px;
+        border: 2px solid #00ffcc;
+        font-size: 1.8rem;
+        cursor: pointer;
+        border-radius: 12px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 15px #00ffcc, 0 0 30px #00ffcc inset;
+        overflow: hidden;
+    }
+    .download-btn:hover {
+        color: black;
+        background: #00ffcc;
+        box-shadow: 0 0 25px #00ffcc, 0 0 50px #00ffcc inset;
+    }
+</style>
+</head>
+<body>
+
+<!-- Tanıtım ekranı -->
+<div id="intro">
+    <div class="title">CS Scripter</div>
+    <div class="subtitle">The Future of Scripting</div>
+</div>
+
+<!-- Ana sayfa -->
+<div id="main">
+    <h1>CS Scripter</h1>
+    <p>En hızlı ve güvenilir script platformu</p>
+    <a href="https://example.com/dosya.zip" download>
+        <button class="download-btn">Download</button>
+    </a>
+</div>
+
+<script>
+    setTimeout(() => {
+        document.getElementById('intro').style.display = 'none';
+        document.getElementById('main').style.display = 'flex';
+        document.body.classList.add('main-bg');
+    }, 10000); // 10 saniye sonra geçiş
+</script>
+
+</body>
+</html>
