@@ -8,7 +8,7 @@
     "start": "node api/test.js"
   },
   "dependencies": {
-    "mongodb": "^6.9.0"
-    "mongosee": "^8.4.1"
- }
+    "mongodb": "^6.9.0",
+    "mongoose": "^8.4.1"
+  }
 }
