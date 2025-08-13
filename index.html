@@ -1,112 +1,771 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CS Scripter - Ana Sayfa</title>
-  <link rel="stylesheet" href="style.css"/>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: white;
-      position: relative;
-      overflow-x: hidden;
-    }
-    /* LED yan şeritler */
-    .led-strip {
-      position: fixed;
-      top: 0;
-      width: 8px;
-      height: 100%;
-      background: linear-gradient(0deg, red, orange, yellow, green, cyan, blue, purple, red);
-      background-size: 100% 400%;
-      animation: ledAnimation 5s linear infinite;
-      z-index: 200;
-    }
-    .led-strip.left {
-      left: 0;
-    }
-    .led-strip.right {
-      right: 0;
-    }
-    @keyframes ledAnimation {
-      0% { background-position: 0% 0%; }
-      100% { background-position: 0% 100%; }
-    }
+<body class="framer-body-augiA20Il-framer-7aCv4">
+        <script async="" src="https://events.framer.com/script" data-fid="52f559e56d66e4449d5ea82e70220c763643074cee88909c227fcd151e73f260"></script>
+        <!-- Start of bodyStart -->
+        <!-- End of bodyStart -->
+        <div id="main" data-framer-hydrate-v2="{&quot;routeId&quot;:&quot;augiA20Il&quot;,&quot;localeId&quot;:&quot;default&quot;,&quot;breakpoints&quot;:[{&quot;hash&quot;:&quot;72rtr7&quot;,&quot;mediaQuery&quot;:&quot;(min-width: 1200px)&quot;},{&quot;hash&quot;:&quot;1lpxxz1&quot;,&quot;mediaQuery&quot;:&quot;(min-width: 810px) and (max-width: 1199px)&quot;},{&quot;hash&quot;:&quot;gqgo96&quot;,&quot;mediaQuery&quot;:&quot;(max-width: 809px)&quot;}]}" data-framer-ssr-released-at="2024-12-13T15:25:33.308Z" data-framer-page-optimized-at="2024-12-15T21:42:12.826Z"><div class="framer-7aCv4 framer-MfSEf framer-ky9ky framer-72rtr7" style="min-height: 100vh; width: auto;"><div class="ssr-variant hidden-gqgo96"><div class="framer-133ntjc-container" style="opacity: 1; transform: translateX(-50%);"><div class="ssr-variant hidden-72rtr7"><header class="framer-Tpe0d framer-xdxAP framer-b1iHv framer-19dpixp framer-v-140fudm" data-border="true" data-framer-name="Tablet" style="--border-bottom-width: 1px; --border-color: rgba(0, 0, 0, 0.12); --border-left-width: 0px; --border-right-width: 0px; --border-style: solid; --border-top-width: 0px; background: linear-gradient(180deg, rgb(0, 0, 0) 0%, var(--token-466f412f-31e4-4f7f-a7e6-91a69b113f31, rgba(1, 1, 1, 0)) /* {&quot;name&quot;:&quot;Transparent&quot;} */ 100%); width: 100%; opacity: 1;"><nav class="framer-lfq8v1" data-framer-name="Container" style="opacity: 1;"><div class="framer-1l69g6l" data-framer-name="Content" style="opacity: 1;"><div class="framer-15ycbyt" data-framer-name="Top" style="opacity: 1;"><a class="framer-1lz2v1o framer-1a4rd3t" data-framer-name="Logo" href="./" data-framer-page-link-current="true" style="opacity: 1;"><div data-framer-background-image-wrapper="true" style="position: absolute; border-radius: inherit; inset: 0px;"><img decoding="async" sizes="134px" srcset="https://framerusercontent.com/images/DlRElQUJJeYv6bYZZSVeBgFaCE.png?scale-down-to=512 512w,https://framerusercontent.com/images/DlRElQUJJeYv6bYZZSVeBgFaCE.png 563w" src="https://framerusercontent.com/images/DlRElQUJJeYv6bYZZSVeBgFaCE.png" alt="" style="display: block; width: 100%; height: 100%; border-radius: inherit; object-position: center center; object-fit: contain;"></div></a></div><nav class="framer-sxk2lh" data-framer-name="Navigation" style="opacity: 1;"><div class="framer-odwtoe" data-framer-component-type="RichTextContainer" style="outline: none; display: flex; flex-direction: column; justify-content: flex-start; flex-shrink: 0; --framer-paragraph-spacing: 0px; transform: none; opacity: 1;"><p class="framer-text framer-styles-preset-1sqb9a6" data-styles-preset="hDeIRJmHc"><a class="framer-text framer-styles-preset-869fea" data-styles-preset="ytIpVvCKS" href="./contact"></a></p></div></nav><div class="framer-o4me96" data-framer-name="CTA" style="opacity: 1;"><div class="framer-llw8t2-container" style="opacity: 1;"><a class="framer-2EzxA framer-vLF4u framer-wb4i0e framer-v-wb4i0e framer-1e6ffg7" data-border="true" data-framer-name="Primary" data-reset="button" href="https://getsolara.dev/download" rel="noopener" style="--border-bottom-width: 2px; --border-color: rgba(0, 0, 0, 0.23); --border-left-width: 2px; --border-right-width: 2px; --border-style: solid; --border-top-width: 2px; background-color: var(--token-478605a9-7d53-48cf-b49e-fa520e13d8b5, rgb(84, 37, 176)); border-radius: 12px; box-shadow: none; opacity: 1;"><div class="framer-oupza1" data-framer-component-type="RichTextContainer" style="outline: none; display: flex; flex-direction: column; justify-content: flex-start; flex-shrink: 0; --extracted-r6o4lv: var(--token-64f5bd03-6b7a-43e3-ba7b-3a0b2b8b7a5e, rgb(242, 249, 254)); --framer-link-text-color: rgb(0, 153, 255); --framer-link-text-decoration: underline; transform: none; opacity: 1;"><p class="framer-text framer-styles-preset-1ih4j0r" data-styles-preset="p5cEBhys8" style="--framer-text-color: var(--extracted-r6o4lv, var(--token-64f5bd03-6b7a-43e3-ba7b-3a0b2b8b7a5e, rgb(242, 249, 254)));">Download</p></div></a></div></div></div></nav></header></div></div></div><section class="framer-2623wp" data-framer-name="Hero" name="Hero"><div class="framer-k7r1f6" data-framer-appear-id="k7r1f6" data-framer-name="Hero App BG" name="Hero App BG" style="opacity: 1; will-change: transform; transform: none;"><div data-framer-background-image-wrapper="true" style="position: absolute; border-radius: inherit; inset: 0px;"><img decoding="async" src="../images/1nYGGdewjXYd2ZQI5Z42kjF27E.png" alt="" style="display: block; width: 100%; height: 100%; border-radius: inherit; object-position: center top; object-fit: contain;"></div></div><div class="framer-1l6dcv4-container" data-framer-appear-id="1l6dcv4" style="opacity: 1; will-change: transform; transform: perspective(1200px);"><div class="ssr-variant hidden-gqgo96"><div style="width: 100%; height: 100%; overflow: hidden; background-color: rgba(0, 0, 0, 0); transform: translateZ(0px); border-radius: 0px; position: relative;"><div id="One"><canvas data-generated="false" style="width: 100%; height: 100%; position: absolute; pointer-events: none;" width="1207" height="922"></canvas></div></div></div></div><div class="framer-1exv011" data-framer-name="Container" name="Container"><div class="framer-12u6gtz" data-framer-name="Content" name="Content"><div class="ssr-variant hidden-gqgo96"><div class="framer-16l17zq" data-framer-name="Shade Bottom" name="Shade Bottom" style="opacity: 1; transform: none;"></div></div><div class="framer-14t9s9c" data-framer-name="Heading" name="Heading"><div class="framer-c9y9xx" data-framer-name="Title" name="Title"><div class="framer-1b71sn1" data-framer-component-type="RichTextContainer" style="outline: none; display: flex; flex-direction: column; justify-content: flex-start; flex-shrink: 0; opacity: 1; transform: none;"><h1 class="framer-text framer-styles-preset-l55hgz" data-styles-preset="NoFD8ZNLo" style="--framer-text-color: rgb(28, 28, 28);"><span data-text-fill="true" class="framer-text" style="background-image: linear-gradient(90deg, rgb(171, 43, 214) -7.000000000000001%, rgba(176, 176, 176, 1) -6.448275862068965%, var(--token-64f5bd03-6b7a-43e3-ba7b-3a0b2b8b7a5e, rgb(242, 249, 254)) 52%);">The First &amp; Best External Executor After Byfron.</span></h1></div></div></div><div class="framer-1w8tio9" data-framer-name="Hero App" name="Hero App" style="transform: perspective(1000px);"><div class="framer-1lyf96s" data-framer-name="Shade Left" name="Shade Left"><div data-framer-background-image-wrapper="true" style="position: absolute; border-radius: inherit; inset: 0px;"><img decoding="async" src="https://framerusercontent.com/images/2r3aydMUtf21dgRfYgmjqsZDDPE.svg" alt="" style="display: block; width: 100%; height: 100%; border-radius: inherit; object-position: center center; object-fit: contain;"></div></div><div class="framer-61q8h4" data-framer-name="Shade Right" name="Shade Right" style="transform: rotateY(180deg);"><div data-framer-background-image-wrapper="true" style="position: absolute; border-radius: inherit; inset: 0px;"><img decoding="async" src="https://framerusercontent.com/images/2r3aydMUtf21dgRfYgmjqsZDDPE.svg" alt="" style="display: block; width: 100%; height: 100%; border-radius: inherit; object-position: center center; object-fit: contain;"></div></div><div class="ssr-variant hidden-gqgo96"><div class="framer-1teq11j" data-framer-appear-id="1teq11j" data-framer-name="Hero Card" name="Hero Card" style="will-change: transform; opacity: 1; transform: none;"><div class="ssr-variant hidden-72rtr7"><div class="framer-szf8di-container"><div class="framer-hN07v framer-1fdxjmg framer-v-1fdxjmg" data-framer-name="Card Gradient Left" data-highlight="true" style="height: 100%; width: 100%; border-radius: 33px; opacity: 1;"><div class="framer-15kt1y9" data-framer-name="Stroke" style="background: radial-gradient(9.43857% 16.55% at 15.70986% 9.35714%, var(--token-90cc85bd-6083-4ac2-af67-f188d4052fe6, rgb(150, 103, 244)) /* {&quot;name&quot;:&quot;Purple/200&quot;} */ 0%, rgba(255, 255, 255, 0) 100%); border-radius: 40px; transform: none; transform-origin: 50% 50% 0px; opacity: 1;"></div></div></div></div><div class="framer-a5l0a" data-border="true" data-framer-name="Outer Stroke" name="Outer Stroke"><div class="ssr-variant hidden-72rtr7"><div class="framer-v1fz01" data-border="true" data-framer-name="Image" name="Image"><div data-framer-background-image-wrapper="true" style="position: absolute; border-radius: inherit; inset: 0px;"><img decoding="async" sizes="max(max(min(max(100vw - 70px, 1px), 1018px), 1px) - 18px, 1px)" srcset="../images/ZcuuVmilcebEnChOsuR2BUkeLE.png?scale-down-to=512 512w,../images/ZcuuVmilcebEnChOsuR2BUkeLE.png?scale-down-to=1024 1024w,../images/ZcuuVmilcebEnChOsuR2BUkeLE.png 1918w" src="../images/ZcuuVmilcebEnChOsuR2BUkeLE.png" alt="" style="display: block; width: 100%; height: 100%; border-radius: inherit; object-position: center center; object-fit: contain;"></div></div></div></div></div></div></div></div></div></section><section class="framer-qjes2t" data-framer-name="FAQ" name="FAQ"><div class="framer-h9vn6s" data-framer-name="Content" name="Content"><div class="framer-otozkb" data-framer-name="FAQ Heading" name="FAQ Heading"><div class="ssr-variant hidden-gqgo96 hidden-72rtr7"><div class="framer-1jqwnjv-container" style="opacity: 0; transform: translateY(20px);"><div class="framer-Cf5uO framer-uERG0 framer-xTNEA framer-ald4uv framer-v-ald4uv" data-framer-name="Dark" style="background-color: var(--token-b5d64e1c-d37d-4055-8848-8c028ccb4878, rgb(25, 22, 36)); border-radius: 40px; opacity: 1;"><div class="framer-19zr0tb" data-framer-component-type="RichTextContainer" style="outline: none; display: flex; flex-direction: column; justify-content: flex-start; flex-shrink: 0; --extracted-r6o4lv: rgb(0, 0, 0); --framer-link-text-color: rgb(0, 153, 255); --framer-link-text-decoration: underline; transform: none; opacity: 1;"><p class="framer-text framer-styles-preset-96lg0g" data-styles-preset="KF1C3Kr7v" style="--framer-text-color: var(--extracted-r6o4lv, rgb(0, 0, 0));"><span data-text-fill="true" class="framer-text" style="background-image: linear-gradient(90deg, var(--token-a929069a-7ea7-40ad-b0e3-511b9ef2472b, rgb(189, 156, 255)) 0%, var(--token-64f5bd03-6b7a-43e3-ba7b-3a0b2b8b7a5e, rgb(242, 249, 254)) 125%);">We've got you covered</span></p></div></div></div></div><div class="ssr-variant hidden-gqgo96"><div class="framer-1mtwf1o" data-framer-component-type="RichTextContainer" style="outline: none; display: flex; flex-direction: column; justify-content: flex-start; flex-shrink: 0; opacity: 1; transform: none;"><h2 class="framer-text framer-styles-preset-1dvk7j8" data-styles-preset="vh1e5yIUY" style="--framer-text-color: rgb(28, 28, 28);"><span data-text-fill="true" class="framer-text" style="background-image: linear-gradient(90deg, var(--token-d2bc7a45-11e0-468d-8e86-da93ff072b7c, rgb(175, 175, 175)) -7.000000000000001%, var(--token-64f5bd03-6b7a-43e3-ba7b-3a0b2b8b7a5e, rgb(242, 249, 254)) 52%);">Frequently Asked Questions</span></h2></div></div></div><div class="ssr-variant hidden-gqgo96 hidden-72rtr7"><div class="framer-u53yf6-container" style="opacity: 0; transform: translateY(30px);"><div class="framer-oh1N4 framer-mek02q framer-v-mek02q" data-framer-name="Accordion Collapsed" style="max-width: 100%; width: 100%; opacity: 1;"><div class="framer-sin4xp-container" style="opacity: 1;"><div class="framer-sc94c framer-ETDlF framer-gh0pF framer-1fuva7n framer-v-1fuva7n" data-border="true" data-framer-name="Close" data-highlight="true" tabindex="0" style="--border-bottom-width: 1px; --border-color: var(--token-466f412f-31e4-4f7f-a7e6-91a69b113f31, rgba(1, 1, 1, 0)); --border-left-width: 1px; --border-right-width: 1px; --border-style: solid; --border-top-width: 1px; background-color: var(--token-466f412f-31e4-4f7f-a7e6-91a69b113f31, rgba(1, 1, 1, 0)); width: 100%; border-radius: 20px; opacity: 1;"><div class="framer-ly7958" data-framer-name="Accordion content" style="opacity: 1;"><div class="framer-1ywcw29" data-framer-name="Heading" style="opacity: 1;"><div class="framer-ltcikd" data-framer-component-type="RichTextContainer" style="outline: none; display: flex; flex-direction: column; justify-content: flex-start; flex-shrink: 0; --extracted-a0htzi: var(--token-d2bc7a45-11e0-468d-8e86-da93ff072b7c, rgb(175, 175, 175)); --framer-link-text-color: rgb(0, 153, 255); --framer-link-text-decoration: underline; transform: none; opacity: 1;"><h3 class="framer-text framer-styles-preset-eji9qq" data-styles-preset="nNG7G9K0j" style="--framer-text-color: var(--extracted-a0htzi, var(--token-d2bc7a45-11e0-468d-8e86-da93ff072b7c, rgb(175, 175, 175)));">What's the official discord/telegram?</h3></div><div class="framer-62oit9-container" style="transform: none; opacity: 1;"><div style="display: contents;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--token-d2bc7a45-11e0-468d-8e86-da93ff072b7c, rgb(175, 175, 175))" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;"><polyline points="6 9 12 15 18 9"></polyline></svg></div></div></div></div></div></div><div class="framer-qffyvc-container" style="opacity: 1;"><div class="framer-sc94c framer-ETDlF framer-gh0pF framer-1fuva7n framer-v-1fuva7n" data-border="true" data-framer-name="Close" data-highlight="true" tabindex="0" style="--border-bottom-width: 1px; --border-color: var(--token-466f412f-31e4-4f7f-a7e6-91a69b113f31, rgba(1, 1, 1, 0)); --border-left-width: 1px; --border-right-width: 1px; --border-style: solid; --border-top-width: 1px; background-color: var(--token-466f412f-31e4-4f7f-a7e6-91a69b113f31, rgba(1, 1, 1, 0)); width: 100%; border-radius: 20px; opacity: 1;"><div class="framer-ly7958" data-framer-name="Accordion content" style="opacity: 1;"><div class="framer-1ywcw29" data-framer-name="Heading" style="opacity: 1;"><div class="framer-ltcikd" data-framer-component-type="RichTextContainer" style="outline: none; display: flex; flex-direction: column; justify-content: flex-start; flex-shrink: 0; --extracted-a0htzi: var(--token-d2bc7a45-11e0-468d-8e86-da93ff072b7c, rgb(175, 175, 175)); --framer-link-text-color: rgb(0, 153, 255); --framer-link-text-decoration: underline; transform: none; opacity: 1;"><h3 class="framer-text framer-styles-preset-eji9qq" data-styles-preset="nNG7G9K0j" style="--framer-text-color: var(--extracted-a0htzi, var(--token-d2bc7a45-11e0-468d-8e86-da93ff072b7c, rgb(175, 175, 175)));">How much sUNC / UNC?</h3></div><div class="framer-62oit9-container" style="transform: none; opacity: 1;"><div style="display: contents;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--token-d2bc7a45-11e0-468d-8e86-da93ff072b7c, rgb(175, 175, 175))" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;"><polyline points="6 9 12 15 18 9"></polyline></svg></div></div></div></div></div></div><div class="framer-cus4dw-container" style="opacity: 1;"><div class="framer-sc94c framer-ETDlF framer-gh0pF framer-1fuva7n framer-v-1fuva7n" data-border="true" data-framer-name="Close" data-highlight="true" tabindex="0" style="--border-bottom-width: 1px; --border-color: var(--token-466f412f-31e4-4f7f-a7e6-91a69b113f31, rgba(1, 1, 1, 0)); --border-left-width: 1px; --border-right-width: 1px; --border-style: solid; --border-top-width: 1px; background-color: var(--token-466f412f-31e4-4f7f-a7e6-91a69b113f31, rgba(1, 1, 1, 0)); width: 100%; border-radius: 20px; opacity: 1;"><div class="framer-ly7958" data-framer-name="Accordion content" style="opacity: 1;"><div class="framer-1ywcw29" data-framer-name="Heading" style="opacity: 1;"><div class="framer-ltcikd" data-framer-component-type="RichTextContainer" style="outline: none; display: flex; flex-direction: column; justify-content: flex-start; flex-shrink: 0; --extracted-a0htzi: var(--token-d2bc7a45-11e0-468d-8e86-da93ff072b7c, rgb(175, 175, 175)); --framer-link-text-color: rgb(0, 153, 255); --framer-link-text-decoration: underline; transform: none; opacity: 1;"><h3 class="framer-text framer-styles-preset-eji9qq" data-styles-preset="nNG7G9K0j" style="--framer-text-color: var(--extracted-a0htzi, var(--token-d2bc7a45-11e0-468d-8e86-da93ff072b7c, rgb(175, 175, 175)));">Why is this free?</h3></div><div class="framer-62oit9-container" style="transform: none; opacity: 1;"><div style="display: contents;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--token-d2bc7a45-11e0-468d-8e86-da93ff072b7c, rgb(175, 175, 175))" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;"><polyline points="6 9 12 15 18 9"></polyline></svg></div></div></div></div></div></div><div class="framer-1n4a8mv-container" style="opacity: 1;"><div class="framer-sc94c framer-ETDlF framer-gh0pF framer-1fuva7n framer-v-1fuva7n" data-border="true" data-framer-name="Close" data-highlight="true" tabindex="0" style="--border-bottom-width: 1px; --border-color: var(--token-466f412f-31e4-4f7f-a7e6-91a69b113f31, rgba(1, 1, 1, 0)); --border-left-width: 1px; --border-right-width: 1px; --border-style: solid; --border-top-width: 1px; background-color: var(--token-466f412f-31e4-4f7f-a7e6-91a69b113f31, rgba(1, 1, 1, 0)); width: 100%; border-radius: 20px; opacity: 1;"><div class="framer-ly7958" data-framer-name="Accordion content" style="opacity: 1;"><div class="framer-1ywcw29" data-framer-name="Heading" style="opacity: 1;"><div class="framer-ltcikd" data-framer-component-type="RichTextContainer" style="outline: none; display: flex; flex-direction: column; justify-content: flex-start; flex-shrink: 0; --extracted-a0htzi: var(--token-d2bc7a45-11e0-468d-8e86-da93ff072b7c, rgb(175, 175, 175)); --framer-link-text-color: rgb(0, 153, 255); --framer-link-text-decoration: underline; transform: none; opacity: 1;"><h3 class="framer-text framer-styles-preset-eji9qq" data-styles-preset="nNG7G9K0j" style="--framer-text-color: var(--extracted-a0htzi, var(--token-d2bc7a45-11e0-468d-8e86-da93ff072b7c, rgb(175, 175, 175)));">How do I contact the developer?</h3></div><div class="framer-62oit9-container" style="transform: none; opacity: 1;"><div style="display: contents;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--token-d2bc7a45-11e0-468d-8e86-da93ff072b7c, rgb(175, 175, 175))" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;"><polyline points="6 9 12 15 18 9"></polyline></svg></div></div></div></div></div></div></div></div></div></div></section><div class="ssr-variant hidden-gqgo96 hidden-72rtr7"><div class="framer-it854a-container" data-framer-name="Call To ACtion" name="Call To ACtion"><div name="Call To ACtion" class="framer-h4WYZ framer-ky9ky framer-1w3s9uf framer-v-1u3b87s" data-framer-name="Tablet" style="width: 100%; border-radius: 33px; opacity: 1;"><div class="framer-vnnjvr" data-border="true" data-framer-name="Container" style="--border-bottom-width: 1px; --border-color: var(--token-dac0bec6-6acb-444c-ac02-87950f2b7f18, rgb(26, 24, 34)); --border-left-width: 1px; --border-right-width: 1px; --border-style: solid; --border-top-width: 1px; border-radius: 33px; box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 33px 0px; opacity: 0; transform: translateY(30px);"><div class="framer-1wsn881" data-framer-name="App_Blur" style="background-color: rgb(135, 89, 242); filter: blur(35px); border-radius: 100%; opacity: 1;"></div><div class="framer-1cqr11s" data-framer-name="Section Background" style="border-radius: 33px; opacity: 1;"><div class="framer-rc76vj-container" style="opacity: 1;"><div class="framer-hN07v framer-1fdxjmg framer-v-1fdxjmg" data-framer-name="Card Gradient Left" data-highlight="true" style="height: 100%; width: 100%; border-radius: 33px; opacity: 1;"><div class="framer-15kt1y9" data-framer-name="Stroke" style="background: radial-gradient(9.43857% 16.55% at 15.70986% 9.35714%, var(--token-90cc85bd-6083-4ac2-af67-f188d4052fe6, rgb(150, 103, 244)) /* {&quot;name&quot;:&quot;Purple/200&quot;} */ 0%, rgba(255, 255, 255, 0) 100%); border-radius: 40px; transform: none; transform-origin: 50% 50% 0px; opacity: 1;"></div></div></div><div class="framer-31fwi8" data-framer-name="Color BG" style="background-color: var(--token-518f5c43-2a7d-48f3-9a8f-3d4fa14a1ea5, rgb(1, 1, 1)); border-radius: 33px; opacity: 1;"></div><div class="framer-g7ady7" data-framer-name="Image App BG" style="border-radius: 33px; opacity: 1;"><div data-framer-background-image-wrapper="true" style="position: absolute; border-radius: inherit; inset: 0px;"><img decoding="async" loading="lazy" sizes="min(100vw - 70px, 1228px)" srcset="https://framerusercontent.com/images/Kcg8NcRDb6grRkpV3T7dENJgjuM.png?scale-down-to=512 512w,https://framerusercontent.com/images/Kcg8NcRDb6grRkpV3T7dENJgjuM.png?scale-down-to=1024 1024w,https://framerusercontent.com/images/Kcg8NcRDb6grRkpV3T7dENJgjuM.png 1227w" src="https://framerusercontent.com/images/Kcg8NcRDb6grRkpV3T7dENJgjuM.png" alt="" style="display: block; width: 100%; height: 100%; border-radius: inherit; object-position: center center; object-fit: cover;"></div></div><div class="framer-r098pn-container" style="opacity: 1;"><div style="width: 100%; height: 100%; overflow: hidden; background-color: rgba(0, 0, 0, 0); transform: translateZ(0px); border-radius: 0px; position: relative;"><div id="Two"><canvas data-generated="false" style="width: 100%; height: 100%; position: absolute; pointer-events: none;" width="1120" height="342"></canvas></div></div></div></div><div class="framer-1tysdrr" data-framer-name="Content" style="opacity: 1;"><div class="framer-1uh9ewa" data-framer-name="Heading" style="opacity: 1;"><div class="framer-1ums9jd" data-framer-component-type="RichTextContainer" style="outline: none; display: flex; flex-direction: column; justify-content: flex-start; flex-shrink: 0; --extracted-1of0zx5: rgb(28, 28, 28); --framer-link-text-color: rgb(0, 153, 255); --framer-link-text-decoration: underline; transform: none; opacity: 1;"><h2 class="framer-text framer-styles-preset-1dvk7j8" data-styles-preset="vh1e5yIUY" style="--framer-text-alignment: center; --framer-text-color: var(--extracted-1of0zx5, rgb(28, 28, 28));"><span data-text-fill="true" class="framer-text" style="background-image: linear-gradient(90deg, var(--token-d2bc7a45-11e0-468d-8e86-da93ff072b7c, rgb(175, 175, 175)) -7.000000000000001%, var(--token-64f5bd03-6b7a-43e3-ba7b-3a0b2b8b7a5e, rgb(242, 249, 254)) 52%);">Solara.</span></h2></div></div><div class="framer-dkuj9k" data-framer-name="Description" style="opacity: 1;"><div class="framer-1jrgush-container" style="opacity: 1;"><a class="framer-2EzxA framer-vLF4u framer-wb4i0e framer-v-wb4i0e framer-1e6ffg7" data-border="true" data-framer-name="Primary" data-reset="button" href="https://getsolara.dev/download" rel="noopener" style="--border-bottom-width: 2px; --border-color: rgba(0, 0, 0, 0.23); --border-left-width: 2px; --border-right-width: 2px; --border-style: solid; --border-top-width: 2px; background-color: var(--token-478605a9-7d53-48cf-b49e-fa520e13d8b5, rgb(84, 37, 176)); border-radius: 12px; box-shadow: none; opacity: 1;"><div class="framer-oupza1" data-framer-component-type="RichTextContainer" style="outline: none; display: flex; flex-direction: column; justify-content: flex-start; flex-shrink: 0; --extracted-r6o4lv: var(--token-64f5bd03-6b7a-43e3-ba7b-3a0b2b8b7a5e, rgb(242, 249, 254)); --framer-link-text-color: rgb(0, 153, 255); --framer-link-text-decoration: underline; transform: none; opacity: 1;"><p class="framer-text framer-styles-preset-1ih4j0r" data-styles-preset="p5cEBhys8" style="--framer-text-color: var(--extracted-r6o4lv, var(--token-64f5bd03-6b7a-43e3-ba7b-3a0b2b8b7a5e, rgb(242, 249, 254)));">Download</p></div></a></div></div></div></div></div></div></div><div class="ssr-variant hidden-gqgo96 hidden-72rtr7"><div class="framer-1368ysb-container" data-framer-name="Footer" name="Footer" style="opacity: 0; transform: none;"><footer name="Footer" class="framer-Uxrs0 framer-tLtCs framer-82r14 framer-b1iHv framer-11aqhuv framer-v-156x94j" data-framer-name="Tablet" style="background-color: var(--token-518f5c43-2a7d-48f3-9a8f-3d4fa14a1ea5, rgb(1, 1, 1)); width: 100%; opacity: 1;"><div class="framer-t04tqb" data-framer-name="Container" style="opacity: 1;"><div class="framer-hd5mpc" data-framer-name="Main Footer" style="opacity: 1;"><div class="framer-1c0uoj2" data-framer-name="Content" style="opacity: 1;"><div class="framer-xq3sjm" data-framer-name="Right Content" style="opacity: 1;"><div class="framer-z9ianb" data-framer-name="Heading" style="opacity: 1;"><div class="framer-122jbon" data-framer-name="Logo" style="opacity: 1;"><div data-framer-background-image-wrapper="true" style="position: absolute; border-radius: inherit; inset: 0px;"><img decoding="async" sizes="123.4286px" srcset="https://framerusercontent.com/images/DlRElQUJJeYv6bYZZSVeBgFaCE.png?scale-down-to=512 512w,https://framerusercontent.com/images/DlRElQUJJeYv6bYZZSVeBgFaCE.png 563w" src="https://framerusercontent.com/images/DlRElQUJJeYv6bYZZSVeBgFaCE.png" alt="" style="display: block; width: 100%; height: 100%; border-radius: inherit; object-position: center center; object-fit: contain;"></div></div></div></div><div class="framer-y3mshy" data-framer-name="Menu" style="opacity: 1;"><div class="framer-1r7ckhv" data-framer-name="Social Links" style="opacity: 1;"><div class="framer-1ujo9uz" data-framer-component-type="RichTextContainer" style="outline: none; display: flex; flex-direction: column; justify-content: flex-start; flex-shrink: 0; --extracted-r6o4lv: var(--token-0aea2c7f-2a29-4473-80fd-0453c34792e4, rgb(112, 110, 122)); --framer-link-text-color: rgb(0, 153, 255); --framer-link-text-decoration: underline; transform: none; opacity: 1;"><p class="framer-text framer-styles-preset-1ccdbvx" data-styles-preset="FZpzSo580" style="--framer-text-color: var(--extracted-r6o4lv, var(--token-0aea2c7f-2a29-4473-80fd-0453c34792e4, rgb(112, 110, 122)));">Socials</p></div><div class="framer-326n07" data-framer-name="Social Link Item" style="opacity: 1;"><div class="framer-1vojgih" data-highlight="true" data-framer-component-type="RichTextContainer" tabindex="0" style="outline: none; display: flex; flex-direction: column; justify-content: flex-start; flex-shrink: 0; --extracted-r6o4lv: var(--token-d2bc7a45-11e0-468d-8e86-da93ff072b7c, rgb(175, 175, 175)); transform: none; opacity: 1;"><p class="framer-text framer-styles-preset-oq24ix" data-styles-preset="fLNPrOwUh" style="--framer-text-color: var(--extracted-r6o4lv, var(--token-d2bc7a45-11e0-468d-8e86-da93ff072b7c, rgb(175, 175, 175)));"><a class="framer-text framer-styles-preset-869fea" data-styles-preset="ytIpVvCKS" href="https://x.com/cmdsoftworks" target="_blank" rel="noopener">Twitter (x)</a></p></div><div class="framer-1sxgkh4" data-framer-component-type="RichTextContainer" style="outline: none; display: flex; flex-direction: column; justify-content: flex-start; flex-shrink: 0; --extracted-r6o4lv: var(--token-d2bc7a45-11e0-468d-8e86-da93ff072b7c, rgb(175, 175, 175)); transform: none; opacity: 1;"><p class="framer-text framer-styles-preset-oq24ix" data-styles-preset="fLNPrOwUh" style="--framer-text-color: var(--extracted-r6o4lv, var(--token-d2bc7a45-11e0-468d-8e86-da93ff072b7c, rgb(175, 175, 175)));"><a class="framer-text framer-styles-preset-869fea" data-styles-preset="ytIpVvCKS" href="https://getsolara.dev/discord" target="_blank" rel="noopener">Discord</a></p></div><div class="framer-8lvtxs" data-framer-component-type="RichTextContainer" style="outline: none; display: flex; flex-direction: column; justify-content: flex-start; flex-shrink: 0; --extracted-r6o4lv: var(--token-d2bc7a45-11e0-468d-8e86-da93ff072b7c, rgb(175, 175, 175)); transform: none; opacity: 1;"><p class="framer-text framer-styles-preset-oq24ix" data-styles-preset="fLNPrOwUh" style="--framer-text-color: var(--extracted-r6o4lv, var(--token-d2bc7a45-11e0-468d-8e86-da93ff072b7c, rgb(175, 175, 175)));"><a class="framer-text framer-styles-preset-869fea" data-styles-preset="ytIpVvCKS" href="https://getsolara.dev/revolt" target="_blank" rel="noopener">Revolt</a></p></div></div></div></div></div></div><div class="framer-t3w1pb" data-framer-name="Line" style="background-color: var(--token-dac0bec6-6acb-444c-ac02-87950f2b7f18, rgb(26, 24, 34)); opacity: 1;"></div><div class="framer-f32h4n" data-framer-name="Copyright" style="opacity: 1;"><div class="framer-1rncg6y" data-framer-name="Page Nav" style="opacity: 1;"><div class="framer-1jsos43" data-framer-component-type="RichTextContainer" style="outline: none; display: flex; flex-direction: column; justify-content: flex-start; flex-shrink: 0; --extracted-r6o4lv: var(--token-0aea2c7f-2a29-4473-80fd-0453c34792e4, rgb(112, 110, 122)); --framer-link-text-color: rgb(0, 153, 255); --framer-link-text-decoration: underline; transform: none; opacity: 1;"><p class="framer-text framer-styles-preset-1ccdbvx" data-styles-preset="FZpzSo580" style="--framer-text-color: var(--extracted-r6o4lv, var(--token-0aea2c7f-2a29-4473-80fd-0453c34792e4, rgb(112, 110, 122)));">Copyright CMD Softworks Solara Executor. All right reserved.</p></div></div></div></div></footer></div></div></div><div class="framer-7aCv4 framer-MfSEf framer-ky9ky" id="overlay"></div></div>
+        <script>
+            ( () => {
+                function u() {
+                    function n(t, e, i) {
+                        let r = document.createElement("a");
+                        r.href = t,
+                        r.target = i,
+                        r.rel = e,
+                        document.body.appendChild(r),
+                        r.click(),
+                        r.remove()
+                    }
+                    function o(t) {
+                        if (this.dataset.hydrated) {
+                            this.removeEventListener("click", o);
+                            return
+                        }
+                        t.preventDefault(),
+                        t.stopPropagation();
+                        let e = this.getAttribute("href");
+                        if (!e)
+                            return;
+                        if (/Mac|iPod|iPhone|iPad/u.test(navigator.userAgent) ? t.metaKey : t.ctrlKey)
+                            return n(e, "", "_blank");
+                        let r = this.getAttribute("rel") ?? ""
+                          , c = this.getAttribute("target") ?? "";
+                        n(e, r, c)
+                    }
+                    function a(t) {
+                        if (this.dataset.hydrated) {
+                            this.removeEventListener("auxclick", o);
+                            return
+                        }
+                        t.preventDefault(),
+                        t.stopPropagation();
+                        let e = this.getAttribute("href");
+                        e && n(e, "", "_blank")
+                    }
+                    function s(t) {
+                        if (this.dataset.hydrated) {
+                            this.removeEventListener("keydown", s);
+                            return
+                        }
+                        if (t.key !== "Enter")
+                            return;
+                        t.preventDefault(),
+                        t.stopPropagation();
+                        let e = this.getAttribute("href");
+                        if (!e)
+                            return;
+                        let i = this.getAttribute("rel") ?? ""
+                          , r = this.getAttribute("target") ?? "";
+                        n(e, i, r)
+                    }
+                    document.querySelectorAll("[data-nested-link]").forEach(t => {
+                        t instanceof HTMLElement && (t.addEventListener("click", o),
+                        t.addEventListener("auxclick", a),
+                        t.addEventListener("keydown", s))
+                    }
+                    )
+                }
+                return u
+            }
+            )()()
+        </script>
+        <script>
+            ( () => {
+                function i() {
+                    for (let e of document.querySelectorAll("[data-framer-original-sizes]")) {
+                        let t = e.getAttribute("data-framer-original-sizes");
+                        t === "" ? e.removeAttribute("sizes") : e.setAttribute("sizes", t),
+                        e.removeAttribute("data-framer-original-sizes")
+                    }
+                }
+                function a() {
+                    window.__framer_onRewriteBreakpoints = i
+                }
+                return a
+            }
+            )()()
+        </script>
+        <div id="__framer-badge-container"><div class="__framer-badge" style="opacity: 1; transform: none;"></div></div>
+        <script>
+            "use strict";
+            var animator = ( () => {
+                var z = Object.defineProperty;
+                var ve = Object.getOwnPropertyDescriptor;
+                var Oe = Object.getOwnPropertyNames;
+                var Se = Object.prototype.hasOwnProperty;
+                var ke = (e, t) => {
+                    for (var n in t)
+                        z(e, n, {
+                            get: t[n],
+                            enumerable: !0
+                        })
+                }
+                  , Pe = (e, t, n, o) => {
+                    if (t && typeof t == "object" || typeof t == "function")
+                        for (let f of Oe(t))
+                            !Se.call(e, f) && f !== n && z(e, f, {
+                                get: () => t[f],
+                                enumerable: !(o = ve(t, f)) || o.enumerable
+                            });
+                    return e
+                }
+                ;
+                var De = e => Pe(z({}, "__esModule", {
+                    value: !0
+                }), e);
+                var nt = {};
+                ke(nt, {
+                    animateAppearEffects: () => Me,
+                    getActiveVariantHash: () => Te,
+                    spring: () => P,
+                    startOptimizedAppearAnimation: () => N
+                });
+                var Ie = ["transformPerspective", "x", "y", "z", "translateX", "translateY", "translateZ", "scale", "scaleX", "scaleY", "rotate", "rotateX", "rotateY", "rotateZ", "skew", "skewX", "skewY"]
+                  , W = new Set(Ie);
+                var S = e => e * 1e3
+                  , k = e => e / 1e3;
+                var E = e => e;
+                var H = E;
+                var B = (e, t, n) => n > t ? t : n < e ? e : n;
+                function U(e, t) {
+                    return t ? e * (1e3 / t) : 0
+                }
+                var Ke = 5;
+                function Q(e, t, n) {
+                    let o = Math.max(t - Ke, 0);
+                    return U(n - e(o), t - o)
+                }
+                var L = .001
+                  , Ee = .01
+                  , J = 10
+                  , Ce = .05
+                  , Ve = 1;
+                function ee({duration: e=800, bounce: t=.25, velocity: n=0, mass: o=1}) {
+                    let f, r;
+                    H(e <= S(J), "Spring duration must be 10 seconds or less");
+                    let a = 1 - t;
+                    a = B(Ce, Ve, a),
+                    e = B(Ee, J, k(e)),
+                    a < 1 ? (f = s => {
+                        let p = s * a
+                          , c = p * e
+                          , u = p - n
+                          , l = C(s, a)
+                          , d = Math.exp(-c);
+                        return L - u / l * d
+                    }
+                    ,
+                    r = s => {
+                        let c = s * a * e
+                          , u = c * n + n
+                          , l = Math.pow(a, 2) * Math.pow(s, 2) * e
+                          , d = Math.exp(-c)
+                          , g = C(Math.pow(s, 2), a);
+                        return (-f(s) + L > 0 ? -1 : 1) * ((u - l) * d) / g
+                    }
+                    ) : (f = s => {
+                        let p = Math.exp(-s * e)
+                          , c = (s - n) * e + 1;
+                        return -L + p * c
+                    }
+                    ,
+                    r = s => {
+                        let p = Math.exp(-s * e)
+                          , c = (n - s) * (e * e);
+                        return p * c
+                    }
+                    );
+                    let m = 5 / e
+                      , i = ze(f, r, m);
+                    if (e = S(e),
+                    isNaN(i))
+                        return {
+                            stiffness: 100,
+                            damping: 10,
+                            duration: e
+                        };
+                    {
+                        let s = Math.pow(i, 2) * o;
+                        return {
+                            stiffness: s,
+                            damping: a * 2 * Math.sqrt(o * s),
+                            duration: e
+                        }
+                    }
+                }
+                var $e = 12;
+                function ze(e, t, n) {
+                    let o = n;
+                    for (let f = 1; f < $e; f++)
+                        o = o - e(o) / t(o);
+                    return o
+                }
+                function C(e, t) {
+                    return e * Math.sqrt(1 - t * t)
+                }
+                var Be = ["duration", "bounce"]
+                  , Le = ["stiffness", "damping", "mass"];
+                function te(e, t) {
+                    return t.some(n => e[n] !== void 0)
+                }
+                function Re(e) {
+                    let t = {
+                        velocity: 0,
+                        stiffness: 100,
+                        damping: 10,
+                        mass: 1,
+                        isResolvedFromDuration: !1,
+                        ...e
+                    };
+                    if (!te(e, Le) && te(e, Be)) {
+                        let n = ee(e);
+                        t = {
+                            ...t,
+                            ...n,
+                            mass: 1
+                        },
+                        t.isResolvedFromDuration = !0
+                    }
+                    return t
+                }
+                function P({keyframes: e, restDelta: t, restSpeed: n, ...o}) {
+                    let f = e[0]
+                      , r = e[e.length - 1]
+                      , a = {
+                        done: !1,
+                        value: f
+                    }
+                      , {stiffness: m, damping: i, mass: s, duration: p, velocity: c, isResolvedFromDuration: u} = Re({
+                        ...o,
+                        velocity: -k(o.velocity || 0)
+                    })
+                      , l = c || 0
+                      , d = i / (2 * Math.sqrt(m * s))
+                      , g = r - f
+                      , y = k(Math.sqrt(m / s))
+                      , M = Math.abs(g) < 5;
+                    n || (n = M ? .01 : 2),
+                    t || (t = M ? .005 : .5);
+                    let h;
+                    if (d < 1) {
+                        let x = C(y, d);
+                        h = A => {
+                            let T = Math.exp(-d * y * A);
+                            return r - T * ((l + d * y * g) / x * Math.sin(x * A) + g * Math.cos(x * A))
+                        }
+                    } else if (d === 1)
+                        h = x => r - Math.exp(-y * x) * (g + (l + y * g) * x);
+                    else {
+                        let x = y * Math.sqrt(d * d - 1);
+                        h = A => {
+                            let T = Math.exp(-d * y * A)
+                              , K = Math.min(x * A, 300);
+                            return r - T * ((l + d * y * g) * Math.sinh(K) + x * g * Math.cosh(K)) / x
+                        }
+                    }
+                    return {
+                        calculatedDuration: u && p || null,
+                        next: x => {
+                            let A = h(x);
+                            if (u)
+                                a.done = x >= p;
+                            else {
+                                let T = 0;
+                                d < 1 && (T = x === 0 ? S(l) : Q(h, x, A));
+                                let K = Math.abs(T) <= n
+                                  , be = Math.abs(r - A) <= t;
+                                a.done = K && be
+                            }
+                            return a.value = a.done ? r : A,
+                            a
+                        }
+                    }
+                }
+                var ne = e => Array.isArray(e) && typeof e[0] == "number";
+                var oe = (e, t, n) => {
+                    let o = t - e;
+                    return o === 0 ? 1 : (n - e) / o
+                }
+                ;
+                var Fe = 10
+                  , re = (e, t) => {
+                    let n = ""
+                      , o = Math.max(Math.round(t / Fe), 2);
+                    for (let f = 0; f < o; f++)
+                        n += e(oe(0, o - 1, f)) + ", ";
+                    return `linear(${n.substring(0, n.length - 2)})`
+                }
+                ;
+                function ie(e) {
+                    let t;
+                    return () => (t === void 0 && (t = e()),
+                    t)
+                }
+                var se = {
+                    linearEasing: void 0
+                };
+                function ae(e, t) {
+                    let n = ie(e);
+                    return () => {
+                        var o;
+                        return (o = se[t]) !== null && o !== void 0 ? o : n()
+                    }
+                }
+                var pe = ae( () => {
+                    try {
+                        document.createElement("div").animate({
+                            opacity: 0
+                        }, {
+                            easing: "linear(0, 1)"
+                        })
+                    } catch {
+                        return !1
+                    }
+                    return !0
+                }
+                , "linearEasing");
+                var D = ([e,t,n,o]) => `cubic-bezier(${e}, ${t}, ${n}, ${o})`
+                  , fe = {
+                    linear: "linear",
+                    ease: "ease",
+                    easeIn: "ease-in",
+                    easeOut: "ease-out",
+                    easeInOut: "ease-in-out",
+                    circIn: D([0, .65, .55, 1]),
+                    circOut: D([.55, 0, 1, .45]),
+                    backIn: D([.31, .01, .66, -.59]),
+                    backOut: D([.33, 1.53, .69, .99])
+                };
+                function R(e, t) {
+                    if (e)
+                        return typeof e == "function" && pe() ? re(e, t) : ne(e) ? D(e) : Array.isArray(e) ? e.map(n => R(n, t) || fe.easeOut) : fe[e]
+                }
+                function F(e, t, n, {delay: o=0, duration: f=300, repeat: r=0, repeatType: a="loop", ease: m, times: i}={}) {
+                    let s = {
+                        [t]: n
+                    };
+                    i && (s.offset = i);
+                    let p = R(m, f);
+                    return Array.isArray(p) && (s.easing = p),
+                    e.animate(s, {
+                        delay: o,
+                        duration: f,
+                        easing: Array.isArray(p) ? "linear" : p,
+                        fill: "both",
+                        iterations: r + 1,
+                        direction: a === "reverse" ? "alternate" : "normal"
+                    })
+                }
+                var me = e => e.replace(/([a-z])([A-Z])/gu, "$1-$2").toLowerCase();
+                var X = "framerAppearId"
+                  , ce = "data-" + me(X);
+                function ue(e) {
+                    return e.props[ce]
+                }
+                var b = (e, t) => {
+                    let n = W.has(t) ? "transform" : t;
+                    return `${e}: ${n}`
+                }
+                ;
+                var w = new Map
+                  , v = new Map;
+                function Y(e, t, n) {
+                    var o;
+                    let f = b(e, t)
+                      , r = w.get(f);
+                    if (!r)
+                        return null;
+                    let {animation: a, startTime: m} = r;
+                    function i() {
+                        var s;
+                        (s = window.MotionCancelOptimisedAnimation) === null || s === void 0 || s.call(window, e, t, n)
+                    }
+                    return a.onfinish = i,
+                    m === null || !((o = window.MotionHandoffIsComplete) === null || o === void 0) && o.call(window, e) ? (i(),
+                    null) : m
+                }
+                var V, O, j = new Set;
+                function Xe() {
+                    j.forEach(e => {
+                        e.animation.play(),
+                        e.animation.startTime = e.startTime
+                    }
+                    ),
+                    j.clear()
+                }
+                function N(e, t, n, o, f) {
+                    if (window.MotionIsMounted)
+                        return;
+                    let r = e.dataset[X];
+                    if (!r)
+                        return;
+                    window.MotionHandoffAnimation = Y;
+                    let a = b(r, t);
+                    O || (O = F(e, t, [n[0], n[0]], {
+                        duration: 1e4,
+                        ease: "linear"
+                    }),
+                    w.set(a, {
+                        animation: O,
+                        startTime: null
+                    }),
+                    window.MotionHandoffAnimation = Y,
+                    window.MotionHasOptimisedAnimation = (i, s) => {
+                        if (!i)
+                            return !1;
+                        if (!s)
+                            return v.has(i);
+                        let p = b(i, s);
+                        return !!w.get(p)
+                    }
+                    ,
+                    window.MotionHandoffMarkAsComplete = i => {
+                        v.has(i) && v.set(i, !0)
+                    }
+                    ,
+                    window.MotionHandoffIsComplete = i => v.get(i) === !0,
+                    window.MotionCancelOptimisedAnimation = (i, s, p, c) => {
+                        let u = b(i, s)
+                          , l = w.get(u);
+                        l && (p && c === void 0 ? p.postRender( () => {
+                            p.postRender( () => {
+                                l.animation.cancel()
+                            }
+                            )
+                        }
+                        ) : l.animation.cancel(),
+                        p && c ? (j.add(l),
+                        p.render(Xe)) : (w.delete(u),
+                        w.size || (window.MotionCancelOptimisedAnimation = void 0)))
+                    }
+                    ,
+                    window.MotionCheckAppearSync = (i, s, p) => {
+                        var c, u;
+                        let l = ue(i);
+                        if (!l)
+                            return;
+                        let d = (c = window.MotionHasOptimisedAnimation) === null || c === void 0 ? void 0 : c.call(window, l, s)
+                          , g = (u = i.props.values) === null || u === void 0 ? void 0 : u[s];
+                        if (!d || !g)
+                            return;
+                        let y = p.on("change", M => {
+                            var h;
+                            g.get() !== M && ((h = window.MotionCancelOptimisedAnimation) === null || h === void 0 || h.call(window, l, s),
+                            y())
+                        }
+                        );
+                        return y
+                    }
+                    );
+                    let m = () => {
+                        O.cancel();
+                        let i = F(e, t, n, o);
+                        V === void 0 && (V = performance.now()),
+                        i.startTime = V,
+                        w.set(a, {
+                            animation: i,
+                            startTime: V
+                        }),
+                        f && f(i)
+                    }
+                    ;
+                    v.set(r, !1),
+                    O.ready ? O.ready.then(m).catch(E) : m()
+                }
+                var G = ["transformPerspective", "x", "y", "z", "translateX", "translateY", "translateZ", "scale", "scaleX", "scaleY", "rotate", "rotateX", "rotateY", "rotateZ", "skew", "skewX", "skewY"]
+                  , Ye = {
+                    x: "translateX",
+                    y: "translateY",
+                    z: "translateZ",
+                    transformPerspective: "perspective"
+                }
+                  , je = {
+                    translateX: "px",
+                    translateY: "px",
+                    translateZ: "px",
+                    x: "px",
+                    y: "px",
+                    z: "px",
+                    perspective: "px",
+                    transformPerspective: "px",
+                    rotate: "deg",
+                    rotateX: "deg",
+                    rotateY: "deg"
+                };
+                function le(e, t) {
+                    let n = je[e];
+                    return !n || typeof t == "string" && t.endsWith(n) ? t : `${t}${n}`
+                }
+                function _(e) {
+                    return G.includes(e)
+                }
+                var Ne = (e, t) => G.indexOf(e) - G.indexOf(t);
+                function de({transform: e, transformKeys: t}, n) {
+                    let o = {}
+                      , f = !0
+                      , r = "";
+                    t.sort(Ne);
+                    for (let a of t) {
+                        let m = e[a]
+                          , i = !0;
+                        typeof m == "number" ? i = m === (a.startsWith("scale") ? 1 : 0) : i = parseFloat(m) === 0,
+                        i || (f = !1,
+                        r += `${Ye[a] || a}(${e[a]}) `),
+                        n && (o[a] = e[a])
+                    }
+                    return r = r.trim(),
+                    n ? r = n(o, r) : f && (r = "none"),
+                    r
+                }
+                function Z(e, t) {
+                    let n = new Set(Object.keys(e));
+                    for (let o in t)
+                        n.add(o);
+                    return Array.from(n)
+                }
+                function q(e, t) {
+                    let n = t - e.length;
+                    if (n <= 0)
+                        return e;
+                    let o = new Array(n).fill(e[e.length - 1]);
+                    return e.concat(o)
+                }
+                function I(e) {
+                    return e * 1e3
+                }
+                var ye = {
+                    duration: .001
+                }
+                  , $ = {
+                    opacity: 1,
+                    scale: 1,
+                    translateX: 0,
+                    translateY: 0,
+                    translateZ: 0,
+                    x: 0,
+                    y: 0,
+                    z: 0,
+                    rotate: 0,
+                    rotateX: 0,
+                    rotateY: 0
+                };
+                function Ae(e, t, n, o, f) {
+                    return n.delay && (n.delay = I(n.delay)),
+                    n.type === "spring" ? _e(e, t, n, o, f) : qe(e, t, n, o, f)
+                }
+                function Ge(e, t, n) {
+                    let o = {}
+                      , f = 0
+                      , r = 0;
+                    for (let a of Z(e, t)) {
+                        let m = e[a] ?? $[a]
+                          , i = t[a] ?? $[a];
+                        if (m === void 0 || i === void 0 || a !== "transformPerspective" && m === i)
+                            continue;
+                        a === "transformPerspective" && (o[a] = [m, i]);
+                        let s = Je(m, i, n)
+                          , {duration: p, keyframes: c} = s;
+                        p === void 0 || c === void 0 || (p > f && (f = p,
+                        r = c.length),
+                        o[a] = c)
+                    }
+                    return {
+                        keyframeValuesByProps: o,
+                        longestDuration: f,
+                        longestLength: r
+                    }
+                }
+                function _e(e, t, n, o, f) {
+                    let r = {}
+                      , {keyframeValuesByProps: a, longestDuration: m, longestLength: i} = Ge(e, t, n);
+                    if (!i)
+                        return r;
+                    let s = {
+                        ease: "linear",
+                        duration: m,
+                        delay: n.delay
+                    }
+                      , p = f ? ye : s
+                      , c = {};
+                    for (let[l,d] of Object.entries(a))
+                        _(l) ? c[l] = q(d, i) : r[l] = {
+                            keyframes: q(d, i),
+                            options: l === "opacity" ? s : p
+                        };
+                    let u = we(c, o);
+                    return u && (r.transform = {
+                        keyframes: u,
+                        options: p
+                    }),
+                    r
+                }
+                function Ze(e) {
+                    let {type: t, duration: n, ...o} = e;
+                    return {
+                        duration: I(n),
+                        ...o
+                    }
+                }
+                function qe(e, t, n, o, f) {
+                    let r = Ze(n);
+                    if (!r)
+                        return;
+                    let a = {}
+                      , m = f ? ye : r
+                      , i = {};
+                    for (let p of Z(e, t)) {
+                        let c = e[p] ?? $[p]
+                          , u = t[p] ?? $[p];
+                        c === void 0 || u === void 0 || p !== "transformPerspective" && c === u || (_(p) ? i[p] = [c, u] : a[p] = {
+                            keyframes: [c, u],
+                            options: p === "opacity" ? r : m
+                        })
+                    }
+                    let s = we(i, o);
+                    return s && (a.transform = {
+                        keyframes: s,
+                        options: m
+                    }),
+                    a
+                }
+                var We = ["duration", "bounce"]
+                  , He = ["stiffness", "damping", "mass"];
+                function he(e) {
+                    return He.some(t => t in e) ? !1 : We.some(t => t in e)
+                }
+                function Ue(e, t, n) {
+                    return he(n) ? `${e}-${t}-${n.duration}-${n.bounce}` : `${e}-${t}-${n.damping}-${n.stiffness}-${n.mass}`
+                }
+                function Qe(e) {
+                    return he(e) ? {
+                        ...e,
+                        duration: I(e.duration)
+                    } : e
+                }
+                var xe = new Map
+                  , ge = 10;
+                function Je(e, t, n) {
+                    let o = Ue(e, t, n)
+                      , f = xe.get(o);
+                    if (f)
+                        return f;
+                    let r = [e, t]
+                      , a = P({
+                        ...Qe(n),
+                        keyframes: r
+                    })
+                      , m = {
+                        done: !1,
+                        value: r[0]
+                    }
+                      , i = []
+                      , s = 0;
+                    for (; !m.done && s < I(10); )
+                        m = a.next(s),
+                        i.push(m.value),
+                        s += ge;
+                    r = i;
+                    let p = s - ge
+                      , u = {
+                        keyframes: r,
+                        duration: p,
+                        ease: "linear"
+                    };
+                    return xe.set(o, u),
+                    u
+                }
+                function we(e, t) {
+                    let n = []
+                      , o = Object.values(e)[0]?.length;
+                    if (!o)
+                        return;
+                    let f = Object.keys(e);
+                    for (let r = 0; r < o; r++) {
+                        let a = {};
+                        for (let[i,s] of Object.entries(e)) {
+                            let p = s[r];
+                            p !== void 0 && (a[i] = le(i, p))
+                        }
+                        let m = de({
+                            transform: a,
+                            transformKeys: f
+                        }, t);
+                        n.push(m)
+                    }
+                    return n
+                }
+                function et(e, t) {
+                    if (!t)
+                        for (let n in e) {
+                            let o = e[n];
+                            return o?.legacy === !0 ? o : void 0
+                        }
+                }
+                function Me(e, t, n, o, f, r) {
+                    for (let[a,m] of Object.entries(e)) {
+                        let i = r ? m[r] : void 0;
+                        if (i === null || !i && m.default === null)
+                            continue;
+                        let s = i ?? m.default ?? et(m, r);
+                        if (!s)
+                            continue;
+                        let {initial: p, animate: c, transformTemplate: u} = s;
+                        if (!p || !c)
+                            continue;
+                        let {transition: l, ...d} = c
+                          , g = Ae(p, d, l, tt(u, o), f);
+                        if (!g)
+                            continue;
+                        let y = {}
+                          , M = {};
+                        for (let[x,A] of Object.entries(g))
+                            y[x] = A.keyframes,
+                            M[x] = A.options;
+                        let h = r ? `:not(.hidden-${r}) ` : "";
+                        t(`${h}[${n}="${a}"]`, y, M)
+                    }
+                }
+                function tt(e, t) {
+                    if (!(!e || !t))
+                        return (n, o) => e.replace(t, o)
+                }
+                function Te(e) {
+                    return e ? e.find(n => n.mediaQuery ? window.matchMedia(n.mediaQuery).matches === !0 : !1)?.hash : void 0
+                }
+                return De(nt);
+            }
+            )();
+        </script>
+        <script type="framer/appear" id="__framer__appearAnimationsContent">
+            {"k7r1f6":{"default":{"initial":{"opacity":0.001,"rotate":0,"rotateX":0,"rotateY":0,"scale":1,"skewX":0,"skewY":0,"x":0,"y":0},"animate":{"opacity":1,"rotate":0,"rotateX":0,"rotateY":0,"scale":1,"skewX":0,"skewY":0,"transition":{"damping":39,"delay":1.5,"mass":1,"stiffness":65,"type":"spring"},"x":0,"y":0}}},"1l6dcv4":{"default":{"initial":{"opacity":0.001,"rotate":0,"rotateX":0,"rotateY":0,"scale":1,"skewX":0,"skewY":0,"transformPerspective":1200,"x":0,"y":0},"animate":{"opacity":1,"rotate":0,"rotateX":0,"rotateY":0,"scale":1,"skewX":0,"skewY":0,"transformPerspective":1200,"transition":{"damping":76,"delay":1.6,"mass":1,"stiffness":50,"type":"spring"},"x":0,"y":0}}},"1teq11j":{"default":{"initial":{"opacity":0.001,"rotate":0,"rotateX":0,"rotateY":0,"scale":0.82,"skewX":0,"skewY":0,"x":0,"y":30},"animate":{"opacity":1,"rotate":0,"rotateX":0,"rotateY":0,"scale":1,"skewX":0,"skewY":0,"transition":{"damping":21,"delay":0.6,"mass":0.6,"stiffness":67,"type":"spring"},"x":0,"y":0}},"1lpxxz1":{"initial":{"opacity":0.001,"rotate":0,"rotateX":0,"rotateY":0,"scale":0.82,"skewX":0,"skewY":0,"x":0,"y":30},"animate":{"opacity":1,"rotate":0,"rotateX":0,"rotateY":0,"scale":1,"skewX":0,"skewY":0,"transition":{"damping":21,"delay":0.6,"mass":0.6,"stiffness":67,"type":"spring"},"x":0,"y":0}},"gqgo96":{"initial":{"opacity":0.001,"rotate":0,"rotateX":0,"rotateY":0,"scale":0.82,"skewX":0,"skewY":0,"x":0,"y":30},"animate":{"opacity":1,"rotate":0,"rotateX":0,"rotateY":0,"scale":1,"skewX":0,"skewY":0,"transition":{"damping":21,"delay":0.6,"mass":0.6,"stiffness":67,"type":"spring"},"x":0,"y":0}}}}
+        </script>
+        <script type="framer/appear" id="__framer__breakpoints">
+            [{"hash":"72rtr7","mediaQuery":"(min-width: 1200px)"},{"hash":"1lpxxz1","mediaQuery":"(min-width: 810px) and (max-width: 1199px)"},{"hash":"gqgo96","mediaQuery":"(max-width: 809px)"}]
+        </script>
+        <script data-framer-appear-animation="no-preference">
+            ( () => {
+                function s(r, n, t) {
+                    window.__framer_disable_appear_effects_optimization__ || typeof animator > "u" || requestAnimationFrame( () => {
+                        performance.mark("framer-appear-start"),
+                        animator.animateAppearEffects(JSON.parse(window.__framer__appearAnimationsContent.text), (i, o, p) => {
+                            let e = document.querySelector(i);
+                            if (e)
+                                for (let[a,m] of Object.entries(o))
+                                    animator.startOptimizedAppearAnimation(e, a, m, p[a])
+                        }
+                        , r, n, t && window.matchMedia("(prefers-reduced-motion:reduce)").matches === !0, animator.getActiveVariantHash(JSON.parse(window.__framer__breakpoints.text))),
+                        performance.mark("framer-appear-end"),
+                        performance.measure("framer-appear", "framer-appear-start", "framer-appear-end")
+                    }
+                    )
+                }
+                return s
+            }
+            )()("data-framer-appear-id", "__Appear_Animation_Transform__", false)
+        </script>
+        <script type="module" async="" data-framer-bundle="main" fetchpriority="low" src="scripts/script_main.OWK6BWHL.mjs"></script>
+        <div id="svg-templates" style="position: absolute; overflow: hidden; bottom: 0; left: 0; width: 0; height: 0; z-index: 0; contain: strict" aria-hidden="true"></div>
+        <!-- Start of bodyEnd -->
+        <!-- End of bodyEnd -->
+    <!-- Cloudflare Pages Analytics --><script defer="" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;: &quot;3e4caf6cae974df2bb260d6cb87ed4c1&quot;}"></script><!-- Cloudflare Pages Analytics -->
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 50px;
-      background: rgba(0,0,0,0.4);
-      backdrop-filter: blur(6px);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-    nav a:hover {
-      color: #00ffff;
-    }
-    .hero {
-      text-align: center;
-      padding: 100px 20px;
-      animation: fadeIn 1.5s ease-in-out;
-    }
-    .hero h1 {
-      font-size: 3em;
-      color: #00ffff;
-      text-shadow: 0 0 10px #00ffff;
-    }
-    .hero p {
-      font-size: 1.2em;
-      max-width: 700px;
-      margin: auto;
-      opacity: 0.85;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: rgba(0,0,0,0.5);
-      margin-top: 40px;
-      font-size: 0.9em;
-    }
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(20px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-  </style>
-</head>
-<body>
-  <!-- LED yan şeritler -->
-  <div class="led-strip left"></div>
-  <div class="led-strip right"></div>
-
-  <header>
-    <div class="logo"><strong>CS Scripter</strong></div>
-    <nav>
-      <a href="index.html">Ana Sayfa</a>
-      <a href="biz-kimiz.html">Biz Kimiz</a>
-      <a href="lisanslar.html">Lisanslarımız</a>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <h1>CS Scripter'e Hoşgeldiniz</h1>
-    <p>En güncel ve güvenilir Roblox scriptlerini sizler için sunuyoruz. Hızlı, güvenilir ve kolay kullanım.</p>
-  </section>
-
-  <footer>
-    CS-Scripter Resmi Sitesidir. Diğerleri ile itibar etmeyin.
-  </footer>
-</body>
-</html>
+<ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled"><div id="aswift_0_host" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_0" name="aswift_0" browsingtopics="true" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;min-height:auto;max-height:none;min-width:auto;max-width:none;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-8794126037553205&amp;output=html&amp;adk=1812271804&amp;adf=3025194257&amp;abgtt=6&amp;lmt=1755077955&amp;plat=2%3A16777216%2C3%3A16%2C4%3A16%2C9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32&amp;format=0x0&amp;url=https%3A%2F%2Fgetsolara.dev%2F&amp;pra=5&amp;wgl=1&amp;aihb=0&amp;asro=0&amp;aifxl=29_18~30_19&amp;aiapm=0.1542&amp;aiapmd=0.25178&amp;aiapmi=0.16&amp;aiapmid=1&amp;aiact=0.5423&amp;aiactd=0.7&amp;aicct=0.7&amp;aicctd=0.5799&amp;ailct=0.5849&amp;ailctd=0.65&amp;aimart=4&amp;aimartd=4&amp;uach=WyJXaW5kb3dzIiwiMTAuMC4wIiwieDg2IiwiIiwiMTM5LjAuNzI1OC42NyIsbnVsbCwwLG51bGwsIjY0IixbWyJOb3Q7QT1CcmFuZCIsIjk5LjAuMC4wIl0sWyJHb29nbGUgQ2hyb21lIiwiMTM5LjAuNzI1OC42NyJdLFsiQ2hyb21pdW0iLCIxMzkuMC43MjU4LjY3Il1dLDBd&amp;dt=1755077952745&amp;bpp=21&amp;bdt=1052&amp;idt=2800&amp;shv=r20250811&amp;mjsv=m202508060101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie_enabled=1&amp;eoidce=1&amp;nras=1&amp;correlator=1892259569176&amp;frm=20&amp;pv=2&amp;u_tz=180&amp;u_his=2&amp;u_h=864&amp;u_w=1536&amp;u_ah=824&amp;u_aw=1536&amp;u_cd=24&amp;u_sd=1.25&amp;dmc=8&amp;adx=-12245933&amp;ady=-12245933&amp;biw=1521&amp;bih=738&amp;scr_x=0&amp;scr_y=100&amp;eid=31093860%2C31093862%2C31093925%2C31093927%2C31093934%2C31093975%2C31093983%2C95362656%2C95366912%2C95367636%2C95369085%2C95344789%2C95359266%2C31092548&amp;oid=2&amp;pvsid=4243220192137258&amp;tmod=172885144&amp;uas=0&amp;nvt=3&amp;fsapi=1&amp;fc=1920&amp;brdim=0%2C0%2C0%2C0%2C1536%2C0%2C1536%2C824%2C1536%2C738&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=32768&amp;bc=31&amp;bz=1&amp;td=1&amp;tdf=2&amp;psd=W251bGwsW251bGwsbnVsbCxudWxsLCJkZXByZWNhdGVkX2thbm9uIl0sbnVsbCwzXQ..&amp;nt=1&amp;pgls=CAA.~CAk.&amp;ifi=1&amp;uci=a!1&amp;fsb=1&amp;dtd=2969" data-google-container-id="a!1" tabindex="0" title="Advertisement" aria-label="Advertisement" data-load-complete="true"></iframe></div></ins><iframe src="https://www.google.com/recaptcha/api2/aframe" width="0" height="0" style="display: none;"></iframe></body> böyle bişeyim var
