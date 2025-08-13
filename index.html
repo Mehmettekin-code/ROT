@@ -1,198 +1,217 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CS Scripter - Ana Sayfa</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: white;
-      overflow-x: hidden;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS Scripter</title>
+<style>
+  /* Yükleme ekranı */
+  #loader {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    z-index: 9999;
+    flex-direction: column;
+  }
+  .loading-circle {
+    border: 6px solid rgba(255,255,255,0.2);
+    border-top: 6px solid #00ffff;
+    border-radius: 50%;
+    width: 60px; height: 60px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+  }
+  @keyframes spin {
+    100% { transform: rotate(360deg); }
+  }
 
-    /* Yükleme ekranı */
-    #loader {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: black;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+  /* Arka plan animasyonu */
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+    background: linear-gradient(270deg, #0f0f0f, #1a0033, #000000, #220044);
+    background-size: 800% 800%;
+    animation: bgMove 20s ease infinite;
+    scroll-behavior: smooth;
+  }
+  @keyframes bgMove {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: rgba(0,0,0,0.6);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(5px);
+  }
+  header .logo {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #00ffff;
+  }
+  nav {
+    display: flex;
+    gap: 15px;
+  }
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  nav a:hover {
+    color: #00ffff;
+  }
+
+  section {
+    padding: 80px 20px;
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+  }
+  section h2 {
+    color: #00ffff;
+    margin-bottom: 20px;
+    font-size: 2em;
+  }
+  section p {
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+
+  /* Projelerimiz görselleri */
+  .projects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  .projects img {
+    max-width: 300px;
+    width: 100%;
+    border-radius: 8px;
+    transition: transform 0.3s;
+  }
+  .projects img:hover {
+    transform: scale(1.05);
+  }
+
+  /* Mobil uyum */
+  @media (max-width: 600px) {
+    nav {
       flex-direction: column;
-      z-index: 9999;
-    }
-    #loader h1 {
-      font-size: 2em;
-      color: #b300ff;
-      animation: glow 1.5s infinite alternate;
-    }
-    @keyframes glow {
-      from { text-shadow: 0 0 5px #b300ff; }
-      to { text-shadow: 0 0 20px #ff00ff; }
-    }
-    #verifyBox {
-      display: none;
-      text-align: center;
-      margin-top: 20px;
-    }
-    #verifyBtn {
-      background: #b300ff;
-      border: none;
-      padding: 10px 20px;
-      font-size: 1em;
-      border-radius: 6px;
-      color: white;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    #verifyBtn:hover {
-      background: #ff00ff;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 50px;
-      background: rgba(0,0,0,0.4);
-      backdrop-filter: blur(6px);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-    nav a:hover {
-      color: #00ffff;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 100px 20px;
-      animation: fadeIn 1.5s ease-in-out;
-    }
-    .hero h1 {
-      font-size: 3em;
-      color: #00ffff;
-      text-shadow: 0 0 10px #00ffff;
-    }
-    .hero p {
-      font-size: 1.2em;
-      max-width: 700px;
-      margin: auto;
-      opacity: 0.85;
-    }
-
-    /* Fotoğraf ve animasyonlu çerçeve */
-    .footer-image-container {
-      position: relative;
-      display: inline-block;
-      padding: 5px;
-      margin-top: 40px;
-    }
-    .footer-image-container img {
-      display: block;
-      width: 100%;
-      max-width: 800px;
-      height: auto;
-      border-radius: 10px;
-      position: relative;
-      z-index: 2;
-    }
-    .footer-image-container::before {
-      content: "";
+      background: rgba(0,0,0,0.8);
       position: absolute;
-      top: -3px;
-      left: -3px;
-      right: -3px;
-      bottom: -3px;
-      border-radius: 12px;
-      border: 3px solid transparent;
-      background: linear-gradient(90deg, violet, purple, violet);
-      background-size: 300% 300%;
-      animation: borderMove 3s linear infinite;
-      z-index: 1;
-      pointer-events: none;
+      top: 60px;
+      right: 0;
+      padding: 10px;
+      display: none;
     }
-    @keyframes borderMove {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 100% 50%; }
+    nav.active {
+      display: flex;
     }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: rgba(0,0,0,0.5);
-      font-size: 0.9em;
+    .menu-toggle {
+      display: block;
+      cursor: pointer;
+      font-size: 1.5em;
     }
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(20px);}
-      to {opacity: 1; transform: translateY(0);}
+  }
+  @media (min-width: 601px) {
+    .menu-toggle {
+      display: none;
     }
-  </style>
+  }
+</style>
 </head>
 <body>
-  <!-- Yükleme ekranı -->
-  <div id="loader">
-    <h1>CS Scripter Yükleniyor...</h1>
-    <div id="verifyBox">
-      <p>Devam etmek için butona tıklayın</p>
-      <button id="verifyBtn">Ben Robot Değilim</button>
-    </div>
+
+<!-- Bot koruması yükleme ekranı -->
+<div id="loader">
+  <div class="loading-circle"></div>
+  Bot doğrulaması yapılıyor...
+</div>
+
+<header>
+  <div class="logo">CS Scripter</div>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <nav id="menu">
+    <a href="#hero">Ana Sayfa</a>
+    <a href="#bizkimiz">Biz Kimiz</a>
+    <a href="#sss">SSS</a>
+    <a href="#projeler">Projelerimiz</a>
+  </nav>
+</header>
+
+<section id="hero">
+  <h1>CS Scripter'e Hoşgeldiniz</h1>
+  <p>En güncel ve güvenilir Roblox scriptlerini sizler için sunuyoruz. Hızlı, güvenilir ve kolay kullanım.</p>
+</section>
+
+<section id="bizkimiz">
+  <h2>Biz Kimiz?</h2>
+  <p>CS Scripter ekibi olarak, Roblox kullanıcılarına en kaliteli scriptleri sunmak için çalışıyoruz. Güvenilirlik, hız ve kullanıcı memnuniyeti önceliğimizdir.</p>
+</section>
+
+<section id="sss">
+  <h2>Sıkça Sorulan Sorular</h2>
+  <p><strong>S: Scriptleriniz güvenli mi?</strong><br> C: Evet, tüm scriptlerimiz test edilerek paylaşılır.</p>
+  <p><strong>S: Ücretli mi?</strong><br> C: Bazı scriptlerimiz ücretsiz, bazıları ise premium üyelik gerektirir.</p>
+</section>
+
+<section id="projeler">
+  <h2>Projelerimiz</h2>
+  <div class="projects">
+    <!-- SS ekleyeceğin yer -->
   </div>
+</section>
 
-  <!-- Asıl içerik -->
-  <header>
-    <div class="logo"><strong>CS Scripter</strong></div>
-    <nav>
-      <a href="index.html">Ana Sayfa</a>
-      <a href="biz-kimiz.html">Biz Kimiz</a>
-      <a href="lisanslar.html">Lisanslarımız</a>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <h1>CS Scripter'e Hoşgeldiniz</h1>
-    <p>En güncel ve güvenilir Roblox scriptlerini sizler için sunuyoruz. Hızlı, güvenilir ve kolay kullanım.</p>
-  </section>
-
-  <div class="footer-image-container">
-    <img src="https://cdn.discordapp.com/attachments/1400737023429574706/1405120704164397148/Xampp_Exuctor.PNG" alt="CS Scripter Görsel">
-  </div>
-
-  <footer>
-    CS-Scripter Resmi Sitesidir. Diğerleri ile itibar etmeyin.
-  </footer>
+<footer style="text-align:center; padding:20px; background:rgba(0,0,0,0.6);">
+  CS-Scripter Resmi Sitesidir. Diğerleri ile itibar etmeyin.
+</footer>
 
 <script>
-  // F12, sağ tık, kısayol engelleme
-  document.addEventListener("contextmenu", e => e.preventDefault());
-  document.onkeydown = function(e) {
-    if (e.keyCode === 123 ||
-        (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) ||
-        (e.ctrlKey && e.keyCode === 85)) {
-      e.preventDefault();
-      return false;
-    }
+  // Menü açma-kapama (mobil)
+  function toggleMenu(){
+    document.getElementById("menu").classList.toggle("active");
+  }
+
+  // Yükleme ekranı
+  window.onload = function(){
+    setTimeout(() => {
+      document.getElementById("loader").style.display = "none";
+    }, 3000); // 3 saniye
   };
 
-  // Yükleme ekranı + bot koruması
-  setTimeout(() => {
-    document.getElementById("verifyBox").style.display = "block";
-  }, 1500);
+  // F12, Ctrl+Shift+I, Ctrl+U engelleme
+  document.addEventListener("keydown", function(e) {
+    if (e.keyCode == 123 || // F12
+        (e.ctrlKey && e.shiftKey && e.keyCode == 73) || // Ctrl+Shift+I
+        (e.ctrlKey && e.keyCode == 85)) { // Ctrl+U
+      e.preventDefault();
+      alert("Bu işlem devre dışı bırakıldı!");
+    }
+  });
 
-  document.getElementById("verifyBtn").addEventListener("click", () => {
-    document.getElementById("loader").style.display = "none";
+  // Sağ tık kapatma
+  document.addEventListener("contextmenu", function(e) {
+    e.preventDefault();
+    alert("Sağ tık devre dışı!");
   });
 </script>
+
 </body>
 </html>
