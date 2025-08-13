@@ -11,8 +11,6 @@
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: white;
-      position: relative;
-      overflow-x: hidden;
     }
 
     header {
@@ -54,40 +52,43 @@
       opacity: 0.85;
     }
 
-    /* Alt fotoğraf alanı */
+    /* Fotoğraf kutusu */
     .footer-image-container {
       position: relative;
-      width: 100%;
-      text-align: center;
-      padding: 20px 0;
+      display: flex;
+      justify-content: center;
+      margin: 40px auto;
+      max-width: 800px;
     }
+
     .footer-image-container img {
       width: 100%;
-      max-width: 800px; /* Masaüstünde en fazla 800px genişlik */
-      height: auto;
-      margin: 0 auto;
       display: block;
-      border-radius: 10px; /* Hafif köşe yuvarlama */
+      border-radius: 10px;
+      position: relative;
+      z-index: 1;
     }
 
-    /* Fotoğraf üzerindeki LED animasyonu */
-    .led-bar {
+    /* LED border animasyonu */
+    .footer-image-container::before {
+      content: "";
       position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      height: 8px;
-      width: 100%;
-      max-width: 800px; /* Fotoğrafla aynı genişlik */
-      background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, purple, red);
-      background-size: 400% 100%;
-      animation: ledMove 5s linear infinite;
-      border-radius: 0 0 10px 10px;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+      border-radius: 12px;
+      padding: 4px;
+      background: linear-gradient(270deg, #ff00ff, #9b00ff, #ff00ff);
+      background-size: 400% 400%;
+      animation: ledBorder 6s linear infinite;
+      z-index: 0;
     }
 
-    @keyframes ledMove {
-      0% { background-position: 0% 0%; }
-      100% { background-position: 100% 0%; }
+    @keyframes ledBorder {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     footer {
@@ -96,6 +97,7 @@
       background: rgba(0,0,0,0.5);
       font-size: 0.9em;
     }
+
     @keyframes fadeIn {
       from {opacity: 0; transform: translateY(20px);}
       to {opacity: 1; transform: translateY(0);}
@@ -117,10 +119,9 @@
     <p>En güncel ve güvenilir Roblox scriptlerini sizler için sunuyoruz. Hızlı, güvenilir ve kolay kullanım.</p>
   </section>
 
-  <!-- Alt fotoğraf ve LED animasyonu -->
+  <!-- Alt fotoğraf ve mor LED animasyonu -->
   <div class="footer-image-container">
-    <img src="https://cdn.discordapp.com/attachments/1400737023429574706/1405120704164397148/Xampp_Exuctor.PNG?ex=689dac21&is=689c5aa1&hm=68c6fe25081eb12dace25f10c4973d2f17a05c630bf94f7c5314d165dc7a968f&" alt="Alt Görsel">
-    <div class="led-bar"></div>
+    <img src="https://cdn.discordapp.com/attachments/1400737023429574706/1405120704164397148/Xampp_Exuctor.PNG" alt="Alt Görsel">
   </div>
 
   <footer>
