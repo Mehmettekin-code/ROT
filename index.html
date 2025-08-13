@@ -11,7 +11,31 @@
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: white;
+      position: relative;
+      overflow-x: hidden;
     }
+    /* LED yan şeritler */
+    .led-strip {
+      position: fixed;
+      top: 0;
+      width: 8px;
+      height: 100%;
+      background: linear-gradient(0deg, red, orange, yellow, green, cyan, blue, purple, red);
+      background-size: 100% 400%;
+      animation: ledAnimation 5s linear infinite;
+      z-index: 200;
+    }
+    .led-strip.left {
+      left: 0;
+    }
+    .led-strip.right {
+      right: 0;
+    }
+    @keyframes ledAnimation {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 0% 100%; }
+    }
+
     header {
       display: flex;
       justify-content: space-between;
@@ -49,20 +73,6 @@
       margin: auto;
       opacity: 0.85;
     }
-    .discord-btn {
-      display: inline-block;
-      margin-top: 20px;
-      background: #5865F2;
-      padding: 12px 25px;
-      border-radius: 8px;
-      color: white;
-      font-weight: bold;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-    .discord-btn:hover {
-      background: #4752c4;
-    }
     footer {
       text-align: center;
       padding: 20px;
@@ -77,20 +87,22 @@
   </style>
 </head>
 <body>
+  <!-- LED yan şeritler -->
+  <div class="led-strip left"></div>
+  <div class="led-strip right"></div>
+
   <header>
     <div class="logo"><strong>CS Scripter</strong></div>
     <nav>
       <a href="index.html">Ana Sayfa</a>
       <a href="biz-kimiz.html">Biz Kimiz</a>
       <a href="lisanslar.html">Lisanslarımız</a>
-      <a href="add-script.html">Script Ekle</a>
     </nav>
   </header>
 
   <section class="hero">
     <h1>CS Scripter'e Hoşgeldiniz</h1>
     <p>En güncel ve güvenilir Roblox scriptlerini sizler için sunuyoruz. Hızlı, güvenilir ve kolay kullanım.</p>
-    <a class="discord-btn" href="/api/auth">Discord ile Giriş Yap</a>
   </section>
 
   <footer>
