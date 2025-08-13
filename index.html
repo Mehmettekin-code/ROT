@@ -1,129 +1,111 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CS Scripter - Ana Sayfa</title>
-  <link rel="stylesheet" href="style.css"/>
-  <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS Scripter</title>
+<style>
     body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: white;
-      position: relative;
-      overflow-x: hidden;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #0f0f0f, #1a1a1a, #222);
+        color: white;
+        overflow: hidden;
     }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 50px;
-      background: rgba(0,0,0,0.4);
-      backdrop-filter: blur(6px);
-      position: sticky;
-      top: 0;
-      z-index: 100;
+    /* Yükleme ekranı */
+    #loader {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        z-index: 9999;
     }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-      transition: 0.3s;
+    #loader h1 {
+        font-size: 2em;
+        color: #b300ff;
+        animation: glow 1.5s infinite alternate;
     }
-    nav a:hover {
-      color: #00ffff;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 100px 20px;
-      animation: fadeIn 1.5s ease-in-out;
-    }
-    .hero h1 {
-      font-size: 3em;
-      color: #00ffff;
-      text-shadow: 0 0 10px #00ffff;
-    }
-    .hero p {
-      font-size: 1.2em;
-      max-width: 700px;
-      margin: auto;
-      opacity: 0.85;
+    @keyframes glow {
+        from { text-shadow: 0 0 5px #b300ff; }
+        to { text-shadow: 0 0 20px #ff00ff; }
     }
 
-    /* Fotoğraf ve animasyonlu çerçeve */
-    .footer-image-container {
-      position: relative;
-      display: inline-block;
-      padding: 5px;
-      margin-top: 40px;
+    /* Bot koruması */
+    #verifyBox {
+        display: none;
+        text-align: center;
+        margin-top: 20px;
     }
-    .footer-image-container img {
-      display: block;
-      width: 100%;
-      max-width: 800px;
-      height: auto;
-      border-radius: 10px;
-      position: relative;
-      z-index: 2;
+    #verifyBtn {
+        background: #b300ff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1em;
+        border-radius: 6px;
+        color: white;
+        cursor: pointer;
+        transition: 0.3s;
     }
-    .footer-image-container::before {
-      content: "";
-      position: absolute;
-      top: -3px;
-      left: -3px;
-      right: -3px;
-      bottom: -3px;
-      border-radius: 12px;
-      border: 3px solid transparent;
-      background: linear-gradient(90deg, violet, purple, violet);
-      background-size: 300% 300%;
-      animation: borderMove 3s linear infinite;
-      z-index: 1;
-      pointer-events: none;
-    }
-    @keyframes borderMove {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 100% 50%; }
+    #verifyBtn:hover {
+        background: #ff00ff;
     }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: rgba(0,0,0,0.5);
-      font-size: 0.9em;
+    /* Ana içerik */
+    #content {
+        display: none;
+        padding: 20px;
+        animation: fadeIn 1s ease-in-out;
     }
     @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(20px);}
-      to {opacity: 1; transform: translateY(0);}
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
     }
-  </style>
+</style>
 </head>
 <body>
-  <header>
-    <div class="logo"><strong>CS Scripter</strong></div>
-    <nav>
-      <a href="index.html">Ana Sayfa</a>
-      <a href="biz-kimiz.html">Biz Kimiz</a>
-      <a href="lisanslar.html">Lisanslarımız</a>
-    </nav>
-  </header>
 
-  <section class="hero">
-    <h1>CS Scripter'e Hoşgeldiniz</h1>
-    <p>En güncel ve güvenilir Roblox scriptlerini sizler için sunuyoruz. Hızlı, güvenilir ve kolay kullanım.</p>
-  </section>
+<!-- Yükleme ekranı -->
+<div id="loader">
+    <h1>CS Scripter Yükleniyor...</h1>
+    <div id="verifyBox">
+        <p>Devam etmek için butona tıklayın</p>
+        <button id="verifyBtn">Ben Robot Değilim</button>
+    </div>
+</div>
 
-  <!-- Fotoğraf ve animasyonlu mor çerçeve -->
-  <div class="footer-image-container">
-    <img src="https://cdn.discordapp.com/attachments/1400737023429574706/1405120704164397148/Xampp_Exuctor.PNG" alt="CS Scripter Görsel">
-  </div>
+<!-- Ana sayfa içeriği -->
+<div id="content">
+    <h1>Hoşgeldiniz</h1>
+    <p>CS Scripter'e giriş yaptınız!</p>
+</div>
 
-  <footer>
-    CS-Scripter Resmi Sitesidir. Diğerleri ile itibar etmeyin.
-  </footer>
+<script>
+    // F12, Sağ Tık, Kısayol Engelleme
+    document.addEventListener("contextmenu", e => e.preventDefault());
+    document.onkeydown = function(e) {
+        if (e.keyCode === 123 || // F12
+            (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) || // Ctrl+Shift+I/J
+            (e.ctrlKey && e.keyCode === 85)) { // Ctrl+U
+            e.preventDefault();
+            return false;
+        }
+    };
+
+    // Yükleme + Bot koruması
+    setTimeout(() => {
+        document.getElementById("verifyBox").style.display = "block";
+    }, 1500);
+
+    document.getElementById("verifyBtn").addEventListener("click", () => {
+        document.getElementById("loader").style.display = "none";
+        document.getElementById("content").style.display = "block";
+    });
+</script>
+
 </body>
 </html>
