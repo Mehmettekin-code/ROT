@@ -2,183 +2,174 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>CS Scripter - Ana Sayfa</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Oyun Hizmetleri</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap');
-
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-  }
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 
   body {
+    margin: 0;
+    background: black;
     font-family: 'Orbitron', sans-serif;
-    background: linear-gradient(-45deg, #0a0a0a, #1a001f, #0a0a0a, #1a001f);
-    background-size: 400% 400%;
-    animation: gradientMove 10s ease infinite;
-    color: white;
+    color: #c36aff;
     overflow-x: hidden;
+    opacity: 0;
+    transition: opacity 0.6s ease;
   }
 
-  @keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+  /* LED arka plan - mor hafif dönen küçük led */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(circle, #a600ff 1px, transparent 2px),
+      radial-gradient(circle, #bb88ff 1px, transparent 2px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    animation: ledMove 4s linear infinite;
+    opacity: 0.15;
+    z-index: -1;
+  }
+  @keyframes ledMove {
+    0% {background-position: 0 0, 10px 10px;}
+    100% {background-position: 20px 20px, 30px 30px;}
+  }
+
+  /* Kar efekti */
+  .snowflake {
+    position: fixed;
+    top: -10px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation-name: fall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  @keyframes fall {
+    0% {transform: translateY(0);}
+    100% {transform: translateY(110vh);}
   }
 
   header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 50px;
-    background: rgba(0,0,0,0.5);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px 0;
+    border-bottom: 1px solid #4b007a;
   }
-
-  nav a {
+  .menu-item {
+    cursor: pointer;
+    padding: 10px 25px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    font-weight: 700;
+    font-size: 1.3rem;
+    user-select: none;
+  }
+  .menu-item:hover {
+    background-color: #7e1fff;
     color: white;
+  }
+
+  main {
+    max-width: 900px;
+    margin: 50px auto 20px auto;
+    padding: 0 20px;
+  }
+  .discord-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #a600ff;
+    font-weight: 700;
     text-decoration: none;
-    margin: 0 15px;
-    font-weight: bold;
-    transition: transform 0.3s, color 0.3s;
+    border: 2px solid #a600ff;
+    padding: 10px 20px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+  .discord-link:hover {
+    background-color: #a600ff;
+    color: white;
   }
 
-  nav a:hover {
-    color: #b300ff;
-    transform: scale(1.1);
+  .fiyatlar {
+    margin-top: 40px;
+    border: 2px solid #a600ff;
+    border-radius: 16px;
+    padding: 20px 30px;
+    color: #bb88ff;
   }
-
-  section {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 50px 20px;
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 1s ease;
-  }
-
-  section.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  h1 {
-    font-size: 3em;
-    color: #b300ff;
-    text-shadow: 0 0 10px #b300ff;
+  .fiyatlar h2 {
+    margin-top: 0;
     margin-bottom: 20px;
+    color: #e0b3ff;
   }
-
-  p {
-    font-size: 1.2em;
-    max-width: 800px;
-    text-align: center;
-    opacity: 0.85;
+  .fiyatlar ul {
+    list-style: none;
+    padding-left: 0;
   }
-
-  footer {
-    text-align: center;
-    padding: 20px;
-    background: rgba(0,0,0,0.7);
-  }
-
-  /* Tam ekran uyarı ekranı */
-  #warning-screen {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: black;
-    color: red;
-    font-size: 2em;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    z-index: 9999;
-    display: none;
-    flex-direction: column;
-    padding: 20px;
+  .fiyatlar ul li {
+    margin-bottom: 10px;
+    font-weight: 600;
   }
 </style>
 </head>
 <body>
+  <header>
+    <div class="menu-item" onclick="goKategori()">Kategoriler</div>
+    <div class="menu-item" onclick="startCheckout('fivem')">FiveM</div>
+    <div class="menu-item" onclick="startCheckout('valorant')">Valorant</div>
+    <div class="menu-item" onclick="startCheckout('cs2')">CS2</div>
+  </header>
 
-<header>
-  <div class="logo"><strong>CS Scripter</strong></div>
-  <nav>
-    <a href="#hero">Ana Sayfa</a>
-    <a href="#bizkimiz">Biz Kimiz</a>
-    <a href="#sss">SSS</a>
-    <a href="#projeler">Projelerimiz</a>
-  </nav>
-</header>
+  <main>
+    <a href="https://discord.gg/hTFjRtwg" target="_blank" class="discord-link">Discord Sunucumuz</a>
 
-<section id="hero" class="show">
-  <h1>CS Scripter'e Hoşgeldiniz</h1>
-  <p>En güncel ve güvenilir Roblox scriptlerini sizler için sunuyoruz. Hızlı, güvenilir ve kolay kullanım.</p>
-</section>
-
-<section id="bizkimiz">
-  <h1>Biz Kimiz?</h1>
-  <p>CS Scripter ekibi olarak amacımız en kaliteli Roblox scriptlerini toplulukla paylaşmak. Deneyimli geliştiricilerimiz ile güvenli içerik sağlıyoruz.</p>
-</section>
-
-<section id="sss">
-  <h1>Sıkça Sorulan Sorular</h1>
-  <p>Burada kullanıcılarımızın en çok sorduğu sorulara cevap veriyoruz. Sorularınız varsa bizimle iletişime geçin.</p>
-</section>
-
-<section id="projeler">
-  <h1>Projelerimiz</h1>
-  <p>Yakında buraya projelerimizin ekran görüntülerini ekleyeceğiz.</p>
-</section>
-
-<footer>
-  CS-Scripter Resmi Sitesidir. Diğerleri ile itibar etmeyin.
-</footer>
-
-<!-- Uyarı ekranı -->
-<div id="warning-screen">
-  <p>Kodlarımızı mı almaya çalışıyorsun?!<br>Sana Uyarı 1 Veriyorum!<br>Eğer devam edersen siteden otomatik olarak <b>1 gün</b> yasaklanacaksın!</p>
-</div>
+    <div class="fiyatlar">
+      <h2>Fiyatlar</h2>
+      <ul>
+        <li>FiveM AimBOT Günlük: 75 TL</li>
+        <li>FiveM AimBOT Haftalık: 250 TL</li>
+        <li>FiveM AimBOT Aylık: 650 TL</li>
+        <li>FiveM AimBOT Sınırsız: 1000 TL</li>
+        <li>Diğer tüm ürünler için bizimle iletişime geçin.</li>
+      </ul>
+    </div>
+  </main>
 
 <script>
-  // Scroll animasyonu
-  const sections = document.querySelectorAll('section');
-  const showOnScroll = () => {
-    const triggerBottom = window.innerHeight * 0.85;
-    sections.forEach(sec => {
-      const boxTop = sec.getBoundingClientRect().top;
-      if (boxTop < triggerBottom) {
-        sec.classList.add('show');
-      }
-    });
-  };
-  window.addEventListener('scroll', showOnScroll);
-  showOnScroll();
+  // Sayfa açılırken opacity animasyonu
+  window.onload = () => {
+    document.body.style.opacity = 1;
 
-  // F12, Ctrl+U engelleme
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'F12' || (e.ctrlKey && e.key.toLowerCase() === 'u')) {
-      e.preventDefault();
-      document.getElementById('warning-screen').style.display = 'flex';
+    // Kar efektini oluştur
+    for(let i=0; i<60; i++) {
+      const flake = document.createElement('div');
+      flake.className = 'snowflake';
+      flake.style.left = Math.random() * 100 + 'vw';
+      flake.style.width = flake.style.height = (Math.random()*3 + 2) + 'px';
+      flake.style.animationDuration = (Math.random()*3 + 3) + 's';
+      flake.style.animationDelay = (Math.random()*10) + 's';
+      document.body.appendChild(flake);
     }
-  });
+  };
 
-  // Sağ tık kapatma (ek güvenlik)
-  document.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
-  });
+  function startCheckout(kategori) {
+    document.body.style.transition = "opacity 0.6s ease";
+    document.body.style.opacity = 0;
+    setTimeout(() => {
+      window.location.href = `checkout.html?kategori=${kategori}`;
+    }, 600);
+  }
+  function goKategori() {
+    document.body.style.transition = "opacity 0.6s ease";
+    document.body.style.opacity = 0;
+    setTimeout(() => {
+      window.location.href = "kategori.html";
+    }, 600);
+  }
 </script>
-
 </body>
 </html>
