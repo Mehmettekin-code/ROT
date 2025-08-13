@@ -11,6 +11,8 @@
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: white;
+      position: relative;
+      overflow-x: hidden;
     }
 
     header {
@@ -52,43 +54,40 @@
       opacity: 0.85;
     }
 
-    /* Fotoğraf kutusu */
+    /* Fotoğraf ve animasyonlu çerçeve */
     .footer-image-container {
       position: relative;
-      display: flex;
-      justify-content: center;
-      margin: 40px auto;
-      max-width: 800px;
+      display: inline-block;
+      padding: 5px;
+      margin-top: 40px;
     }
-
     .footer-image-container img {
-      width: 100%;
       display: block;
+      width: 100%;
+      max-width: 800px;
+      height: auto;
       border-radius: 10px;
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
-
-    /* LED border animasyonu */
     .footer-image-container::before {
       content: "";
       position: absolute;
-      top: -4px;
-      left: -4px;
-      right: -4px;
-      bottom: -4px;
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
       border-radius: 12px;
-      padding: 4px;
-      background: linear-gradient(270deg, #ff00ff, #9b00ff, #ff00ff);
-      background-size: 400% 400%;
-      animation: ledBorder 6s linear infinite;
-      z-index: 0;
+      border: 3px solid transparent;
+      background: linear-gradient(90deg, violet, purple, violet);
+      background-size: 300% 300%;
+      animation: borderMove 3s linear infinite;
+      z-index: 1;
+      pointer-events: none;
     }
-
-    @keyframes ledBorder {
+    @keyframes borderMove {
       0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
     }
 
     footer {
@@ -97,7 +96,6 @@
       background: rgba(0,0,0,0.5);
       font-size: 0.9em;
     }
-
     @keyframes fadeIn {
       from {opacity: 0; transform: translateY(20px);}
       to {opacity: 1; transform: translateY(0);}
@@ -119,9 +117,9 @@
     <p>En güncel ve güvenilir Roblox scriptlerini sizler için sunuyoruz. Hızlı, güvenilir ve kolay kullanım.</p>
   </section>
 
-  <!-- Alt fotoğraf ve mor LED animasyonu -->
+  <!-- Fotoğraf ve animasyonlu mor çerçeve -->
   <div class="footer-image-container">
-    <img src="https://cdn.discordapp.com/attachments/1400737023429574706/1405120704164397148/Xampp_Exuctor.PNG" alt="Alt Görsel">
+    <img src="https://cdn.discordapp.com/attachments/1400737023429574706/1405120704164397148/Xampp_Exuctor.PNG" alt="CS Scripter Görsel">
   </div>
 
   <footer>
