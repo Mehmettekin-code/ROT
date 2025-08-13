@@ -2,12 +2,10 @@
   "name": "my-vercel-app",
   "version": "1.0.0",
   "description": "Vercel deploy with MongoDB",
-  "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "build": "echo 'No build step required'",
+    "start": "node api/test.js"
   },
   "dependencies": {
     "mongodb": "^6.9.0"
