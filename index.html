@@ -1,24 +1,122 @@
+<!DOCTYPE html>
+<html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href="/images/xeno.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Experience the ultimate scripting utility with powerful execution and seamless performance. Join our community today!">
-    <meta name="keywords" content="Xeno, script executor, keyless executor, Roblox executor, scripting, exploit, cheat, hack, Executor">
-    <meta name="author" content="Xeno">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Xeno | The Best Key-Less Executor">
-    <meta property="og:description" content="Experience the ultimate scripting utility with powerful execution and seamless performance. Join our community today!">
-    <meta property="og:image" content="/images/xenos.png">
-    <meta property="og:image:width" content="1920">
-    <meta property="og:image:height" content="1080">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:site_name" content="Xeno">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="/images/xenos.png">
-    <meta property="theme-color" content="#FFFFFF">
-    <title>Xeno | The Best Key-Less Executor</title>
-  <script type="module" crossorigin="" src="/assets/index-BldznYC9.js"></script>
-  <link rel="modulepreload" crossorigin="" href="/assets/monaco-Dj3DcQT7.js">
-  <link rel="stylesheet" crossorigin="" href="/assets/index-Wj2Po3U8.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CS Scripter - Ana Sayfa</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(6px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: #00ffff;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    .hero h1 {
+      font-size: 3em;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff;
+    }
+    .hero p {
+      font-size: 1.2em;
+      max-width: 700px;
+      margin: auto;
+      opacity: 0.85;
+    }
+
+    /* Alt fotoğraf alanı */
+    .footer-image-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+    .footer-image-container img {
+      width: 100%;
+      display: block;
+    }
+
+    /* Fotoğraf üzerindeki LED animasyonu */
+    .led-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 8px;
+      width: 100%;
+      background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, purple, red);
+      background-size: 400% 100%;
+      animation: ledMove 5s linear infinite;
+    }
+
+    @keyframes ledMove {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 100% 0%; }
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0,0,0,0.5);
+      font-size: 0.9em;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
 </head>
+<body>
+  <header>
+    <div class="logo"><strong>CS Scripter</strong></div>
+    <nav>
+      <a href="index.html">Ana Sayfa</a>
+      <a href="biz-kimiz.html">Biz Kimiz</a>
+      <a href="lisanslar.html">Lisanslarımız</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>CS Scripter'e Hoşgeldiniz</h1>
+    <p>En güncel ve güvenilir Roblox scriptlerini sizler için sunuyoruz. Hızlı, güvenilir ve kolay kullanım.</p>
+  </section>
+
+  <!-- Alt fotoğraf ve LED animasyonu -->
+  <div class="footer-image-container">
+    <img src="https://cdn.discordapp.com/attachments/1400737023429574706/1405120704164397148/Xampp_Exuctor.PNG?ex=689dac21&is=689c5aa1&hm=68c6fe25081eb12dace25f10c4973d2f17a05c630bf94f7c5314d165dc7a968f&" alt="Alt Görsel">
+    <div class="led-bar"></div>
+  </div>
+
+  <footer>
+    CS-Scripter Resmi Sitesidir. Diğerleri ile itibar etmeyin.
+  </footer>
+</body>
+</html>
