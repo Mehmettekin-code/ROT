@@ -58,23 +58,31 @@
     .footer-image-container {
       position: relative;
       width: 100%;
-      overflow: hidden;
+      text-align: center;
+      padding: 20px 0;
     }
     .footer-image-container img {
       width: 100%;
+      max-width: 800px; /* Masaüstünde en fazla 800px genişlik */
+      height: auto;
+      margin: 0 auto;
       display: block;
+      border-radius: 10px; /* Hafif köşe yuvarlama */
     }
 
     /* Fotoğraf üzerindeki LED animasyonu */
     .led-bar {
       position: absolute;
       bottom: 0;
-      left: 0;
+      left: 50%;
+      transform: translateX(-50%);
       height: 8px;
       width: 100%;
+      max-width: 800px; /* Fotoğrafla aynı genişlik */
       background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, purple, red);
       background-size: 400% 100%;
       animation: ledMove 5s linear infinite;
+      border-radius: 0 0 10px 10px;
     }
 
     @keyframes ledMove {
